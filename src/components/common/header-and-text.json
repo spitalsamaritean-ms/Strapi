@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_common_header_and_texts",
+  "info": {
+    "displayName": "HeaderAndText"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "text": {
+      "type": "richtext"
+    }
+  }
+}

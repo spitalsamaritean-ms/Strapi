@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_common_image_and_texts",
+  "info": {
+    "displayName": "ImageAndText"
+  },
+  "options": {},
+  "attributes": {
+    "image": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "text": {
+      "type": "richtext"
+    }
+  }
+}

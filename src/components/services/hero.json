@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_services_heroes",
+  "info": {
+    "displayName": "Hero",
+    "icon": "bold"
+  },
+  "options": {},
+  "attributes": {
+    "lead": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "buttons": {
+      "displayName": "buttons",
+      "type": "component",
+      "repeatable": true,
+      "component": "common.buttons"
+    }
+  }
+}

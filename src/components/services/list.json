@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_services_lists",
+  "info": {
+    "displayName": "List",
+    "icon": "",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "items": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::item.item"
+    }
+  }
+}

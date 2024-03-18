@@ -1,0 +1,31 @@
+{
+  "collectionName": "components_services_about2s",
+  "info": {
+    "displayName": "About2"
+  },
+  "options": {},
+  "attributes": {
+    "lead": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "richtext"
+    },
+    "image": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "items": {
+      "displayName": "ListItem",
+      "type": "component",
+      "repeatable": true,
+      "component": "common.list-item"
+    }
+  }
+}
