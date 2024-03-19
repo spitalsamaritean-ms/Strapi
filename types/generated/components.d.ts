@@ -13,6 +13,17 @@ export interface CommonButtons extends Schema.Component {
   };
 }
 
+export interface CommonFaq extends Schema.Component {
+  collectionName: 'components_common_faqs';
+  info: {
+    displayName: 'faq';
+  };
+  attributes: {
+    title: Attribute.String;
+    description: Attribute.RichText;
+  };
+}
+
 export interface CommonHeaderAndText extends Schema.Component {
   collectionName: 'components_common_header_and_texts';
   info: {
@@ -73,6 +84,18 @@ export interface CommonListItem extends Schema.Component {
   };
 }
 
+export interface CommonQuotes extends Schema.Component {
+  collectionName: 'components_common_quotes';
+  info: {
+    displayName: 'Quotes';
+  };
+  attributes: {
+    text: Attribute.Text;
+    image: Attribute.Media;
+    name: Attribute.String;
+  };
+}
+
 export interface CommonText extends Schema.Component {
   collectionName: 'components_common_texts';
   info: {
@@ -116,6 +139,16 @@ export interface MenuMenuLink extends Schema.Component {
   };
 }
 
+export interface PackageFeature extends Schema.Component {
+  collectionName: 'components_package_features';
+  info: {
+    displayName: 'feature';
+  };
+  attributes: {
+    title: Attribute.String;
+  };
+}
+
 export interface ServicesAbout extends Schema.Component {
   collectionName: 'components_services_abouts';
   info: {
@@ -152,7 +185,6 @@ export interface ServicesFaq2 extends Schema.Component {
   attributes: {
     title: Attribute.String;
     description: Attribute.Text;
-    faqs: Attribute.Relation<'services.faq-2', 'oneToMany', 'api::faq.faq'>;
   };
 }
 
@@ -167,7 +199,7 @@ export interface ServicesFaq extends Schema.Component {
     description: Attribute.Text;
     items: Attribute.Component<'common.list-item', true>;
     buttons: Attribute.Component<'common.buttons', true>;
-    faqs: Attribute.Relation<'services.faq', 'oneToMany', 'api::faq.faq'>;
+    faq: Attribute.Component<'common.faq', true>;
   };
 }
 
@@ -195,7 +227,58 @@ export interface ServicesList extends Schema.Component {
   attributes: {
     title: Attribute.String;
     description: Attribute.Text;
-    items: Attribute.Relation<'services.list', 'oneToMany', 'api::item.item'>;
+    items: Attribute.Component<'common.item', true>;
+  };
+}
+
+export interface SharedMetaSocial extends Schema.Component {
+  collectionName: 'components_shared_meta_socials';
+  info: {
+    displayName: 'metaSocial';
+    icon: 'project-diagram';
+  };
+  attributes: {
+    socialNetwork: Attribute.Enumeration<['Facebook', 'Twitter']> &
+      Attribute.Required;
+    title: Attribute.String &
+      Attribute.Required &
+      Attribute.SetMinMaxLength<{
+        maxLength: 60;
+      }>;
+    description: Attribute.String &
+      Attribute.Required &
+      Attribute.SetMinMaxLength<{
+        maxLength: 65;
+      }>;
+    image: Attribute.Media;
+  };
+}
+
+export interface SharedSeo extends Schema.Component {
+  collectionName: 'components_shared_seos';
+  info: {
+    displayName: 'seo';
+    icon: 'search';
+  };
+  attributes: {
+    metaTitle: Attribute.String &
+      Attribute.Required &
+      Attribute.SetMinMaxLength<{
+        maxLength: 60;
+      }>;
+    metaDescription: Attribute.String &
+      Attribute.Required &
+      Attribute.SetMinMaxLength<{
+        minLength: 50;
+        maxLength: 160;
+      }>;
+    metaImage: Attribute.Media;
+    metaSocial: Attribute.Component<'shared.meta-social', true>;
+    keywords: Attribute.Text;
+    metaRobots: Attribute.String;
+    structuredData: Attribute.JSON;
+    metaViewport: Attribute.String;
+    canonicalURL: Attribute.String;
   };
 }
 
@@ -203,21 +286,26 @@ declare module '@strapi/types' {
   export module Shared {
     export interface Components {
       'common.buttons': CommonButtons;
+      'common.faq': CommonFaq;
       'common.header-and-text': CommonHeaderAndText;
       'common.image-and-text': CommonImageAndText;
       'common.image-block3': CommonImageBlock3;
       'common.item': CommonItem;
       'common.list-item': CommonListItem;
+      'common.quotes': CommonQuotes;
       'common.text': CommonText;
       'menu.button': MenuButton;
       'menu.dropdown': MenuDropdown;
       'menu.menu-link': MenuMenuLink;
+      'package.feature': PackageFeature;
       'services.about': ServicesAbout;
       'services.about2': ServicesAbout2;
       'services.faq-2': ServicesFaq2;
       'services.faq': ServicesFaq;
       'services.hero': ServicesHero;
       'services.list': ServicesList;
+      'shared.meta-social': SharedMetaSocial;
+      'shared.seo': SharedSeo;
     }
   }
 }

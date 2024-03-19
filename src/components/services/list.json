@@ -14,9 +14,9 @@
       "type": "text"
     },
     "items": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::item.item"
+      "type": "component",
+      "repeatable": true,
+      "component": "common.item"
     }
   }
 }

@@ -1,7 +1,7 @@
 {
-  "collectionName": "components_services_faq_2s",
+  "collectionName": "components_common_faqs",
   "info": {
-    "displayName": "FAQ2"
+    "displayName": "faq"
   },
   "options": {},
   "attributes": {
@@ -9,7 +9,7 @@
       "type": "string"
     },
     "description": {
-      "type": "text"
+      "type": "richtext"
     }
   }
 }

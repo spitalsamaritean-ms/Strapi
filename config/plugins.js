@@ -21,4 +21,32 @@ module.exports = ({ env }) => ({
   "drag-drop-content-types": {
     enabled: true,
   },
+  email: {
+    config: {
+      provider: "nodemailer",
+      providerOptions: {
+        host: "mail.dixiflor.ro",
+        secure: false,
+        port: 587,
+        tls: {
+          ciphers: "SSLv3",
+          rejectUnauthorized: false,
+        },
+        requireTLS: true,
+        auth: {
+          user: "noreply@dixiflor.ro",
+          pass: "onr^lLa0pNLZ",
+        },
+      },
+      // providerOptions: {
+      //   host: 'localhost',
+      //   port: 1025,
+      //   ignoreTLS: true,
+      // },
+      settings: {
+        defaultFrom: "noreply@dixiflor.ro",
+        defaultReplyTo: "noreply@dixiflor.ro",
+      },
+    },
+  },
 });

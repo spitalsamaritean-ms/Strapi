@@ -768,50 +768,164 @@ export interface PluginI18NLocale extends Schema.CollectionType {
   };
 }
 
-export interface ApiFaqFaq extends Schema.CollectionType {
-  collectionName: 'faqs';
+export interface PluginEmailDesignerEmailTemplate
+  extends Schema.CollectionType {
+  collectionName: 'email_templates';
   info: {
-    singularName: 'faq';
-    pluralName: 'faqs';
-    displayName: 'Service - Faq';
-    description: '';
+    singularName: 'email-template';
+    pluralName: 'email-templates';
+    displayName: 'Email-template';
+    name: 'email-template';
   };
   options: {
     draftAndPublish: false;
+    timestamps: true;
+    increments: true;
+    comment: '';
+  };
+  pluginOptions: {
+    'content-manager': {
+      visible: false;
+    };
+    'content-type-builder': {
+      visible: false;
+    };
   };
   attributes: {
-    title: Attribute.String;
-    description: Attribute.RichText;
-    priority: Attribute.Integer & Attribute.Unique;
+    templateReferenceId: Attribute.Integer & Attribute.Unique;
+    design: Attribute.JSON;
+    name: Attribute.String;
+    subject: Attribute.String;
+    bodyHtml: Attribute.Text;
+    bodyText: Attribute.Text;
+    enabled: Attribute.Boolean & Attribute.DefaultTo<true>;
+    tags: Attribute.JSON;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<'api::faq.faq', 'oneToOne', 'admin::user'> &
+    createdBy: Attribute.Relation<
+      'plugin::email-designer.email-template',
+      'oneToOne',
+      'admin::user'
+    > &
       Attribute.Private;
-    updatedBy: Attribute.Relation<'api::faq.faq', 'oneToOne', 'admin::user'> &
+    updatedBy: Attribute.Relation<
+      'plugin::email-designer.email-template',
+      'oneToOne',
+      'admin::user'
+    > &
       Attribute.Private;
   };
 }
 
-export interface ApiItemItem extends Schema.CollectionType {
-  collectionName: 'items';
+export interface ApiBlogBlog extends Schema.CollectionType {
+  collectionName: 'blogs';
   info: {
-    singularName: 'item';
-    pluralName: 'items';
-    displayName: 'Service - Item';
+    singularName: 'blog';
+    pluralName: 'blogs';
+    displayName: 'Blog';
     description: '';
   };
   options: {
-    draftAndPublish: false;
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String;
+    slug: Attribute.UID<'api::blog.blog', 'title'> & Attribute.Required;
+    description: Attribute.Text;
+    content: Attribute.DynamicZone<
+      [
+        'common.header-and-text',
+        'common.image-and-text',
+        'common.image-block3',
+        'common.text',
+        'common.quotes'
+      ]
+    >;
+    seo: Attribute.Component<'shared.seo'>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<'api::blog.blog', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<'api::blog.blog', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+  };
+}
+
+export interface ApiContactContact extends Schema.CollectionType {
+  collectionName: 'contacts';
+  info: {
+    singularName: 'contact';
+    pluralName: 'contacts';
+    displayName: 'Contact';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    name: Attribute.String;
+    email: Attribute.Email;
+    phone: Attribute.String;
+    message: Attribute.Text;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::contact.contact',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::contact.contact',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiInformationInformation extends Schema.CollectionType {
+  collectionName: 'informations';
+  info: {
+    singularName: 'information';
+    pluralName: 'informations';
+    displayName: 'Information';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
   };
   attributes: {
     title: Attribute.String;
     description: Attribute.RichText;
-    icon: Attribute.Media;
+    button: Attribute.String;
+    slug: Attribute.UID<'api::information.information', 'title'> &
+      Attribute.Required;
+    content: Attribute.DynamicZone<
+      [
+        'common.header-and-text',
+        'common.image-and-text',
+        'common.image-block3',
+        'common.text'
+      ]
+    >;
+    priority: Attribute.Integer;
+    seo: Attribute.Component<'shared.seo'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<'api::item.item', 'oneToOne', 'admin::user'> &
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::information.information',
+      'oneToOne',
+      'admin::user'
+    > &
       Attribute.Private;
-    updatedBy: Attribute.Relation<'api::item.item', 'oneToOne', 'admin::user'> &
+    updatedBy: Attribute.Relation<
+      'api::information.information',
+      'oneToOne',
+      'admin::user'
+    > &
       Attribute.Private;
   };
 }
@@ -835,6 +949,101 @@ export interface ApiMenuMenu extends Schema.SingleType {
     createdBy: Attribute.Relation<'api::menu.menu', 'oneToOne', 'admin::user'> &
       Attribute.Private;
     updatedBy: Attribute.Relation<'api::menu.menu', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+  };
+}
+
+export interface ApiNewsletterNewsletter extends Schema.CollectionType {
+  collectionName: 'newsletters';
+  info: {
+    singularName: 'newsletter';
+    pluralName: 'newsletters';
+    displayName: 'Newsletter';
+    description: '';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    email: Attribute.Email & Attribute.Unique;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::newsletter.newsletter',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::newsletter.newsletter',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiPackagePackage extends Schema.CollectionType {
+  collectionName: 'packages';
+  info: {
+    singularName: 'package';
+    pluralName: 'packages';
+    displayName: 'Package';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String;
+    description: Attribute.Text;
+    price: Attribute.Decimal;
+    priority: Attribute.Integer;
+    features: Attribute.Component<'package.feature', true>;
+    button: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::package.package',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::package.package',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiPartnerPartner extends Schema.SingleType {
+  collectionName: 'partners';
+  info: {
+    singularName: 'partner';
+    pluralName: 'partners';
+    displayName: 'Partner';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    image: Attribute.Media;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::partner.partner',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::partner.partner',
+      'oneToOne',
+      'admin::user'
+    > &
       Attribute.Private;
   };
 }
@@ -904,6 +1113,7 @@ export interface ApiServiceService extends Schema.CollectionType {
         'common.header-and-text'
       ]
     >;
+    seo: Attribute.Component<'shared.seo'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
@@ -917,6 +1127,32 @@ export interface ApiServiceService extends Schema.CollectionType {
       'oneToOne',
       'admin::user'
     > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiTeamTeam extends Schema.CollectionType {
+  collectionName: 'teams';
+  info: {
+    singularName: 'team';
+    pluralName: 'teams';
+    displayName: 'Team';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    name: Attribute.String;
+    position: Attribute.String;
+    description: Attribute.Text;
+    image: Attribute.Media;
+    priority: Attribute.Integer;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<'api::team.team', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<'api::team.team', 'oneToOne', 'admin::user'> &
       Attribute.Private;
   };
 }
@@ -939,11 +1175,17 @@ declare module '@strapi/types' {
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'plugin::i18n.locale': PluginI18NLocale;
-      'api::faq.faq': ApiFaqFaq;
-      'api::item.item': ApiItemItem;
+      'plugin::email-designer.email-template': PluginEmailDesignerEmailTemplate;
+      'api::blog.blog': ApiBlogBlog;
+      'api::contact.contact': ApiContactContact;
+      'api::information.information': ApiInformationInformation;
       'api::menu.menu': ApiMenuMenu;
+      'api::newsletter.newsletter': ApiNewsletterNewsletter;
+      'api::package.package': ApiPackagePackage;
+      'api::partner.partner': ApiPartnerPartner;
       'api::price.price': ApiPricePrice;
       'api::service.service': ApiServiceService;
+      'api::team.team': ApiTeamTeam;
     }
   }
 }

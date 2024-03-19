@@ -22,10 +22,11 @@
       "repeatable": true,
       "component": "common.buttons"
     },
-    "faqs": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::faq.faq"
+    "faq": {
+      "displayName": "faq",
+      "type": "component",
+      "repeatable": true,
+      "component": "common.faq"
     }
   }
 }

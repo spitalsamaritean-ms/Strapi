@@ -46,6 +46,11 @@
         "common.image-and-text",
         "common.header-and-text"
       ]
+    },
+    "seo": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.seo"
     }
   }
 }
