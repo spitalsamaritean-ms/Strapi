@@ -912,6 +912,7 @@ export interface ApiInformationInformation extends Schema.CollectionType {
     >;
     priority: Attribute.Integer;
     seo: Attribute.Component<'shared.seo'>;
+    image: Attribute.Media;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
