@@ -990,6 +990,7 @@ export interface ApiPackagePackage extends Schema.CollectionType {
     singularName: 'package';
     pluralName: 'packages';
     displayName: 'Package';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -1001,6 +1002,7 @@ export interface ApiPackagePackage extends Schema.CollectionType {
     priority: Attribute.Integer;
     features: Attribute.Component<'package.feature', true>;
     button: Attribute.String;
+    type: Attribute.Enumeration<['normal', 'active']>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

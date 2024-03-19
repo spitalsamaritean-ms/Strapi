@@ -4,7 +4,8 @@
   "info": {
     "singularName": "package",
     "pluralName": "packages",
-    "displayName": "Package"
+    "displayName": "Package",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -31,6 +32,13 @@
     },
     "button": {
       "type": "string"
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "normal",
+        "active"
+      ]
     }
   }
 }
