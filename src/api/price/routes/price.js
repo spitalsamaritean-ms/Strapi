@@ -1,9 +1,9 @@
 'use strict';
 
 /**
- * deepl-test router
+ * price router
  */
 
 const { createCoreRouter } = require('@strapi/strapi').factories;
 
-module.exports = createCoreRouter('api::deepl-test.deepl-test');
+module.exports = createCoreRouter('api::price.price');

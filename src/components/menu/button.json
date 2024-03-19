@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_menu_buttons",
+  "info": {
+    "displayName": "Button"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "link": {
+      "type": "string"
+    }
+  }
+}

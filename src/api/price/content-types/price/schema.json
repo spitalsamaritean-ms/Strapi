@@ -1,10 +1,10 @@
 {
   "kind": "collectionType",
-  "collectionName": "faqs",
+  "collectionName": "prices",
   "info": {
-    "singularName": "faq",
-    "pluralName": "faqs",
-    "displayName": "Service - Faq",
+    "singularName": "price",
+    "pluralName": "prices",
+    "displayName": "Price",
     "description": ""
   },
   "options": {
@@ -15,12 +15,13 @@
     "title": {
       "type": "string"
     },
-    "description": {
-      "type": "richtext"
+    "price": {
+      "type": "decimal",
+      "default": 0
     },
     "priority": {
       "type": "integer",
-      "unique": true
+      "unique": false
     }
   }
 }

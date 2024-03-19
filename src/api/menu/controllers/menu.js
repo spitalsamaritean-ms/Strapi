@@ -1,9 +1,9 @@
 'use strict';
 
 /**
- * deepl-test controller
+ * menu controller
  */
 
 const { createCoreController } = require('@strapi/strapi').factories;
 
-module.exports = createCoreController('api::deepl-test.deepl-test');
+module.exports = createCoreController('api::menu.menu');

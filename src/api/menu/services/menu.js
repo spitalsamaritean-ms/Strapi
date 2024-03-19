@@ -1,9 +1,9 @@
 'use strict';
 
 /**
- * deepl-test service
+ * menu service
  */
 
 const { createCoreService } = require('@strapi/strapi').factories;
 
-module.exports = createCoreService('api::deepl-test.deepl-test');
+module.exports = createCoreService('api::menu.menu');
