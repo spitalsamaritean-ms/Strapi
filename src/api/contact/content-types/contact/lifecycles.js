@@ -12,25 +12,19 @@ module.exports = {
         },
         {
           templateReferenceId: 2,
-          subject: `Thank you for your order`,
+          subject: `Spitalul Samaritean Form`,
         },
         {
           name: name,
           lastname: lastname,
         }
       );
-      await strapi.plugins["email"].services.email.send(
-        {
-          to: "attila2000.03.05@gmail.com",
-          from: "noreply@dixiflor.ro",
-          subject: "Contact Form",
-          html: `${result.email}<br>${result.name}`,
-        },
-        {
-          templateReferenceId: 1,
-          subject: `Thank you for your order`,
-        }
-      );
+      await strapi.plugins["email"].services.email.send({
+        to: "attila2000.03.05@gmail.com",
+        from: "noreply@dixiflor.ro",
+        subject: "Contact Form",
+        html: `${result.email}<br>${result.name}`,
+      });
     } catch (err) {
       console.log(err);
     }

@@ -861,7 +861,7 @@ export interface ApiContactContact extends Schema.CollectionType {
     description: '';
   };
   options: {
-    draftAndPublish: true;
+    draftAndPublish: false;
   };
   attributes: {
     name: Attribute.String;
@@ -871,7 +871,6 @@ export interface ApiContactContact extends Schema.CollectionType {
     lastname: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
       'api::contact.contact',
       'oneToOne',
@@ -1119,6 +1118,7 @@ export interface ApiServiceService extends Schema.CollectionType {
       ]
     >;
     seo: Attribute.Component<'shared.seo'>;
+    otherPage: Attribute.Boolean & Attribute.DefaultTo<false>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<

@@ -1,24 +1,24 @@
 module.exports = {
   async afterCreate(event) {
     const { result } = event;
-
+    const email = result.email;
     try {
       await strapi.plugins["email-designer"].services.email.sendTemplatedEmail(
         {
-          to: "attila2000.03.05@gmail.com",
+          to: email,
           from: "noreply@dixiflor.ro",
         },
         {
           templateReferenceId: 1,
-          subject: `Thank you for your order`,
+          subject: `Spitalul Samaritean Newsletter`,
         }
       );
       await strapi.plugins["email"].services.email.send(
         {
           to: "attila2000.03.05@gmail.com",
           from: "noreply@dixiflor.ro",
-          subject: "Contact Form",
-          html: `${result.email}<br>${result.name}`,
+          subject: "Newsletter",
+          html: `${result.email}`,
         },
         {
           templateReferenceId: 1,
