@@ -3,15 +3,20 @@ module.exports = {
     const { result } = event;
     const name = result.name;
     const lastname = result.lastname;
+    const email = result.email;
     try {
       await strapi.plugins["email-designer"].services.email.sendTemplatedEmail(
         {
-          to: "attila2000.03.05@gmail.com",
+          to: email,
           from: "noreply@dixiflor.ro",
         },
         {
           templateReferenceId: 2,
           subject: `Thank you for your order`,
+        },
+        {
+          name: name,
+          lastname: lastname,
         }
       );
       await strapi.plugins["email"].services.email.send(
@@ -24,10 +29,6 @@ module.exports = {
         {
           templateReferenceId: 1,
           subject: `Thank you for your order`,
-        },
-        {
-          name: name,
-          lastname: lastname,
         }
       );
     } catch (err) {
