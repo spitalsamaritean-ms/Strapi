@@ -2,6 +2,7 @@ module.exports = {
   async afterCreate(event) {
     const { result } = event;
     const name = result.name;
+    const lastname = result.lastname;
     try {
       await strapi.plugins["email-designer"].services.email.sendTemplatedEmail(
         {
@@ -9,7 +10,7 @@ module.exports = {
           from: "noreply@dixiflor.ro",
         },
         {
-          templateReferenceId: 1,
+          templateReferenceId: 2,
           subject: `Thank you for your order`,
         }
       );
@@ -26,6 +27,7 @@ module.exports = {
         },
         {
           name: name,
+          lastname: lastname,
         }
       );
     } catch (err) {
