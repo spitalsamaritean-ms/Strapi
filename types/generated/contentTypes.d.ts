@@ -842,6 +842,7 @@ export interface ApiBlogBlog extends Schema.CollectionType {
       ]
     >;
     seo: Attribute.Component<'shared.seo'>;
+    image: Attribute.Media;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
