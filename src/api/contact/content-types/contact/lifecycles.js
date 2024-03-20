@@ -23,6 +23,9 @@ module.exports = {
         {
           templateReferenceId: 1,
           subject: `Thank you for your order`,
+        },
+        {
+          name: name,
         }
       );
     } catch (err) {
