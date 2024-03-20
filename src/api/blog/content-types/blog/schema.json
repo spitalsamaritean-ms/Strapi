@@ -37,21 +37,6 @@
       "type": "component",
       "repeatable": false,
       "component": "shared.seo"
-    },
-    "image": {
-      "type": "media",
-      "multiple": false,
-      "required": false,
-      "allowedTypes": [
-        "images"
-      ]
-    },
-    "top": {
-      "type": "boolean",
-      "default": false
-    },
-    "priority": {
-      "type": "integer"
     }
   }
 }
