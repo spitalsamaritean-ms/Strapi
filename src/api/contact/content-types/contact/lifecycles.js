@@ -1,7 +1,7 @@
 module.exports = {
   async afterCreate(event) {
     const { result } = event;
-
+    const name = result.name;
     try {
       await strapi.plugins["email-designer"].services.email.sendTemplatedEmail(
         {
