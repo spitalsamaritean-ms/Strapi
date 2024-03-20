@@ -4,11 +4,13 @@ module.exports = {
     const name = result.name;
     const lastname = result.lastname;
     const email = result.email;
+    const phone = result.phone;
+    const message = result.message;
     try {
       await strapi.plugins["email-designer"].services.email.sendTemplatedEmail(
         {
           to: email,
-          from: "noreply@dixiflor.ro",
+          from: "no-reply@spitalulsamaritean.ro",
         },
         {
           templateReferenceId: 2,
@@ -20,10 +22,15 @@ module.exports = {
         }
       );
       await strapi.plugins["email"].services.email.send({
-        to: "attila2000.03.05@gmail.com",
-        from: "noreply@dixiflor.ro",
+        to: "office@spitalulsamaritean.ro",
+        from: "no-reply@spitalulsamaritean.ro",
         subject: "Contact Form",
-        html: `${result.email}<br>${result.name}`,
+        html: `
+        Nume: ${name}<br>
+        Prenume: ${lastname}<br>
+        Email: ${email}<br>
+        Telefon: ${phone}<br>
+        Messaj: ${message}<br>`,
       });
     } catch (err) {
       console.log(err);

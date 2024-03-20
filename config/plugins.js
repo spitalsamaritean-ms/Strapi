@@ -25,7 +25,7 @@ module.exports = ({ env }) => ({
     config: {
       provider: "nodemailer",
       providerOptions: {
-        host: "mail.dixiflor.ro",
+        host: "mail.spitalulsamaritean.ro",
         secure: false,
         port: 587,
         tls: {
@@ -34,8 +34,8 @@ module.exports = ({ env }) => ({
         },
         requireTLS: true,
         auth: {
-          user: "noreply@dixiflor.ro",
-          pass: "onr^lLa0pNLZ",
+          user: "no-reply@spitalulsamaritean.ro",
+          pass: "tA-^sdwFq^CZ",
         },
       },
       // providerOptions: {
@@ -44,8 +44,8 @@ module.exports = ({ env }) => ({
       //   ignoreTLS: true,
       // },
       settings: {
-        defaultFrom: "noreply@dixiflor.ro",
-        defaultReplyTo: "noreply@dixiflor.ro",
+        defaultFrom: "no-reply@spitalulsamaritean.ro",
+        defaultReplyTo: "no-reply@spitalulsamaritean.ro",
       },
     },
   },
