@@ -858,6 +858,7 @@ export interface ApiContactContact extends Schema.CollectionType {
     singularName: 'contact';
     pluralName: 'contacts';
     displayName: 'Contact';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -867,6 +868,7 @@ export interface ApiContactContact extends Schema.CollectionType {
     email: Attribute.Email;
     phone: Attribute.String;
     message: Attribute.Text;
+    lastname: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
