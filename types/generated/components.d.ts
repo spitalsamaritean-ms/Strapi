@@ -88,6 +88,7 @@ export interface CommonQuotes extends Schema.Component {
   collectionName: 'components_common_quotes';
   info: {
     displayName: 'Quotes';
+    description: '';
   };
   attributes: {
     text: Attribute.Text;
