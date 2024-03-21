@@ -181,10 +181,12 @@ export interface ServicesFaq2 extends Schema.Component {
   collectionName: 'components_services_faq_2s';
   info: {
     displayName: 'FAQ2';
+    description: '';
   };
   attributes: {
     title: Attribute.String;
     description: Attribute.Text;
+    faq: Attribute.Component<'common.faq', true>;
   };
 }
 
