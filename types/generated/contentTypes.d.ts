@@ -889,6 +889,45 @@ export interface ApiContactContact extends Schema.CollectionType {
   };
 }
 
+export interface ApiCustomPageCustomPage extends Schema.CollectionType {
+  collectionName: 'custom_pages';
+  info: {
+    singularName: 'custom-page';
+    pluralName: 'custom-pages';
+    displayName: 'CustomPage';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    content: Attribute.DynamicZone<
+      [
+        'common.header-and-text',
+        'common.image-and-text',
+        'common.image-block3',
+        'common.text',
+        'common.quotes'
+      ]
+    >;
+    seo: Attribute.Component<'shared.seo'>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::custom-page.custom-page',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::custom-page.custom-page',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiFeebackFeeback extends Schema.CollectionType {
   collectionName: 'feebacks';
   info: {
@@ -1220,6 +1259,7 @@ declare module '@strapi/types' {
       'plugin::email-designer.email-template': PluginEmailDesignerEmailTemplate;
       'api::blog.blog': ApiBlogBlog;
       'api::contact.contact': ApiContactContact;
+      'api::custom-page.custom-page': ApiCustomPageCustomPage;
       'api::feeback.feeback': ApiFeebackFeeback;
       'api::information.information': ApiInformationInformation;
       'api::menu.menu': ApiMenuMenu;
