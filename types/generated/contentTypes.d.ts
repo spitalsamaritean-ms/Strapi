@@ -895,6 +895,7 @@ export interface ApiCustomPageCustomPage extends Schema.CollectionType {
     singularName: 'custom-page';
     pluralName: 'custom-pages';
     displayName: 'CustomPage';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -910,6 +911,9 @@ export interface ApiCustomPageCustomPage extends Schema.CollectionType {
       ]
     >;
     seo: Attribute.Component<'shared.seo'>;
+    title: Attribute.String;
+    slug: Attribute.UID<'api::custom-page.custom-page', 'title'> &
+      Attribute.Required;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
