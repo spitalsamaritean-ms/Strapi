@@ -63,6 +63,7 @@ export interface CommonItem extends Schema.Component {
   info: {
     displayName: 'Item';
     icon: 'bulletList';
+    description: '';
   };
   attributes: {
     title: Attribute.String;
@@ -76,11 +77,11 @@ export interface CommonListItem extends Schema.Component {
   info: {
     displayName: 'ListItem';
     icon: 'bulletList';
+    description: '';
   };
   attributes: {
     title: Attribute.String;
     description: Attribute.Text;
-    icon: Attribute.Media;
   };
 }
 

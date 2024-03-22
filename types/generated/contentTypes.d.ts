@@ -894,7 +894,8 @@ export interface ApiFeebackFeeback extends Schema.CollectionType {
   info: {
     singularName: 'feeback';
     pluralName: 'feebacks';
-    displayName: 'Feeback';
+    displayName: 'Feedback';
+    description: '';
   };
   options: {
     draftAndPublish: true;

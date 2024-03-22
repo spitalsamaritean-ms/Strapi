@@ -4,7 +4,8 @@
   "info": {
     "singularName": "feeback",
     "pluralName": "feebacks",
-    "displayName": "Feeback"
+    "displayName": "Feedback",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -21,11 +22,12 @@
       "type": "text"
     },
     "image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
     }
   }
 }
