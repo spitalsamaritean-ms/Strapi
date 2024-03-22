@@ -889,6 +889,39 @@ export interface ApiContactContact extends Schema.CollectionType {
   };
 }
 
+export interface ApiFeebackFeeback extends Schema.CollectionType {
+  collectionName: 'feebacks';
+  info: {
+    singularName: 'feeback';
+    pluralName: 'feebacks';
+    displayName: 'Feeback';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    name: Attribute.String;
+    position: Attribute.String;
+    text: Attribute.Text;
+    image: Attribute.Media;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::feeback.feeback',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::feeback.feeback',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiInformationInformation extends Schema.CollectionType {
   collectionName: 'informations';
   info: {
@@ -1186,6 +1219,7 @@ declare module '@strapi/types' {
       'plugin::email-designer.email-template': PluginEmailDesignerEmailTemplate;
       'api::blog.blog': ApiBlogBlog;
       'api::contact.contact': ApiContactContact;
+      'api::feeback.feeback': ApiFeebackFeeback;
       'api::information.information': ApiInformationInformation;
       'api::menu.menu': ApiMenuMenu;
       'api::newsletter.newsletter': ApiNewsletterNewsletter;

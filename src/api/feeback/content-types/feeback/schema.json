@@ -1,0 +1,31 @@
+{
+  "kind": "collectionType",
+  "collectionName": "feebacks",
+  "info": {
+    "singularName": "feeback",
+    "pluralName": "feebacks",
+    "displayName": "Feeback"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "position": {
+      "type": "string"
+    },
+    "text": {
+      "type": "text"
+    },
+    "image": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
+    }
+  }
+}
