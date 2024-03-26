@@ -55,6 +55,10 @@
     "otherPage": {
       "type": "boolean",
       "default": false
+    },
+    "priority": {
+      "type": "integer",
+      "required": false
     }
   }
 }

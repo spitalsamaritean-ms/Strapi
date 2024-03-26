@@ -1144,9 +1144,8 @@ export interface ApiPricePrice extends Schema.CollectionType {
     draftAndPublish: false;
   };
   attributes: {
-    title: Attribute.String;
-    price: Attribute.Decimal & Attribute.DefaultTo<0>;
-    priority: Attribute.Integer;
+    categoryName: Attribute.String;
+    priceList: Attribute.Component<'price.price-list', true>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
@@ -1199,6 +1198,7 @@ export interface ApiServiceService extends Schema.CollectionType {
     >;
     seo: Attribute.Component<'shared.seo'>;
     otherPage: Attribute.Boolean & Attribute.DefaultTo<false>;
+    priority: Attribute.Integer;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<

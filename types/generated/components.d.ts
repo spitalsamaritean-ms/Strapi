@@ -151,6 +151,17 @@ export interface PackageFeature extends Schema.Component {
   };
 }
 
+export interface PricePriceList extends Schema.Component {
+  collectionName: 'components_price_price_lists';
+  info: {
+    displayName: 'PriceList';
+  };
+  attributes: {
+    title: Attribute.String;
+    price: Attribute.Integer;
+  };
+}
+
 export interface ServicesAbout extends Schema.Component {
   collectionName: 'components_services_abouts';
   info: {
@@ -302,6 +313,7 @@ declare module '@strapi/types' {
       'menu.dropdown': MenuDropdown;
       'menu.menu-link': MenuMenuLink;
       'package.feature': PackageFeature;
+      'price.price-list': PricePriceList;
       'services.about': ServicesAbout;
       'services.about2': ServicesAbout2;
       'services.faq-2': ServicesFaq2;

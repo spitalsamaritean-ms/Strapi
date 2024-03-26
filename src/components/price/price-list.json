@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_price_price_lists",
+  "info": {
+    "displayName": "PriceList"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "price": {
+      "type": "integer"
+    }
+  }
+}

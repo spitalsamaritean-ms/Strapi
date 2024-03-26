@@ -12,16 +12,14 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "title": {
+    "categoryName": {
       "type": "string"
     },
-    "price": {
-      "type": "decimal",
-      "default": 0
-    },
-    "priority": {
-      "type": "integer",
-      "unique": false
+    "priceList": {
+      "displayName": "PriceList",
+      "type": "component",
+      "repeatable": true,
+      "component": "price.price-list"
     }
   }
 }
