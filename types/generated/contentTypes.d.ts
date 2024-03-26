@@ -1146,6 +1146,9 @@ export interface ApiPricePrice extends Schema.CollectionType {
   attributes: {
     categoryName: Attribute.String;
     priceList: Attribute.Component<'price.price-list', true>;
+    colRightName: Attribute.String;
+    colLeftName: Attribute.String;
+    priority: Attribute.Integer;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<

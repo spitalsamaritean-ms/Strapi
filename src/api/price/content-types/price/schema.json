@@ -20,6 +20,15 @@
       "type": "component",
       "repeatable": true,
       "component": "price.price-list"
+    },
+    "colRightName": {
+      "type": "string"
+    },
+    "colLeftName": {
+      "type": "string"
+    },
+    "priority": {
+      "type": "integer"
     }
   }
 }
