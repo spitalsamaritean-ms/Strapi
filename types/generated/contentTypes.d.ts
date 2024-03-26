@@ -829,9 +829,9 @@ export interface ApiBlogBlog extends Schema.CollectionType {
     draftAndPublish: true;
   };
   attributes: {
-    title: Attribute.String;
+    title: Attribute.String & Attribute.Required;
     slug: Attribute.UID<'api::blog.blog', 'title'> & Attribute.Required;
-    description: Attribute.Text;
+    description: Attribute.Text & Attribute.Required;
     content: Attribute.DynamicZone<
       [
         'common.header-and-text',
@@ -842,8 +842,10 @@ export interface ApiBlogBlog extends Schema.CollectionType {
       ]
     >;
     seo: Attribute.Component<'shared.seo'>;
-    image: Attribute.Media;
-    topPosition: Attribute.Boolean & Attribute.DefaultTo<true>;
+    image: Attribute.Media & Attribute.Required;
+    topPosition: Attribute.Boolean &
+      Attribute.Required &
+      Attribute.DefaultTo<true>;
     priority: Attribute.Integer;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;

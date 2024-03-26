@@ -123,10 +123,12 @@ export interface MenuDropdown extends Schema.Component {
   collectionName: 'components_menu_dropdowns';
   info: {
     displayName: 'Dropdown';
+    description: '';
   };
   attributes: {
     title: Attribute.String;
     Links: Attribute.Component<'menu.menu-link', true>;
+    link: Attribute.String;
   };
 }
 

@@ -13,7 +13,8 @@
   "pluginOptions": {},
   "attributes": {
     "title": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "slug": {
       "type": "uid",
@@ -21,7 +22,8 @@
       "required": true
     },
     "description": {
-      "type": "text"
+      "type": "text",
+      "required": true
     },
     "content": {
       "type": "dynamiczone",
@@ -39,15 +41,17 @@
       "component": "shared.seo"
     },
     "image": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
       "allowedTypes": [
         "images"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
     },
     "topPosition": {
       "type": "boolean",
-      "default": true
+      "default": true,
+      "required": true
     },
     "priority": {
       "type": "integer"
