@@ -891,6 +891,41 @@ export interface ApiContactContact extends Schema.CollectionType {
   };
 }
 
+export interface ApiContactPackageContactPackage extends Schema.CollectionType {
+  collectionName: 'contact_packages';
+  info: {
+    singularName: 'contact-package';
+    pluralName: 'contact-packages';
+    displayName: 'Contact Package';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    firstName: Attribute.String;
+    lastname: Attribute.String;
+    email: Attribute.Email;
+    phone: Attribute.String;
+    message: Attribute.Text;
+    package: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::contact-package.contact-package',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::contact-package.contact-package',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiCustomPageCustomPage extends Schema.CollectionType {
   collectionName: 'custom_pages';
   info: {
@@ -1268,6 +1303,7 @@ declare module '@strapi/types' {
       'plugin::email-designer.email-template': PluginEmailDesignerEmailTemplate;
       'api::blog.blog': ApiBlogBlog;
       'api::contact.contact': ApiContactContact;
+      'api::contact-package.contact-package': ApiContactPackageContactPackage;
       'api::custom-page.custom-page': ApiCustomPageCustomPage;
       'api::feeback.feeback': ApiFeebackFeeback;
       'api::information.information': ApiInformationInformation;
