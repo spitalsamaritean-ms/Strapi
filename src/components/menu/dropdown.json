@@ -7,15 +7,18 @@
   "options": {},
   "attributes": {
     "title": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "Links": {
       "type": "component",
       "repeatable": true,
-      "component": "menu.menu-link"
+      "component": "menu.menu-link",
+      "required": true
     },
     "link": {
-      "type": "string"
+      "type": "string",
+      "required": true
     }
   }
 }

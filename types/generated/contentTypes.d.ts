@@ -981,10 +981,10 @@ export interface ApiFeebackFeeback extends Schema.CollectionType {
     draftAndPublish: true;
   };
   attributes: {
-    name: Attribute.String;
-    position: Attribute.String;
-    text: Attribute.Text;
-    image: Attribute.Media;
+    name: Attribute.String & Attribute.Required;
+    position: Attribute.String & Attribute.Required;
+    text: Attribute.Text & Attribute.Required;
+    image: Attribute.Media & Attribute.Required;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -996,6 +996,49 @@ export interface ApiFeebackFeeback extends Schema.CollectionType {
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'api::feeback.feeback',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiInfoPatientInfoPatient extends Schema.CollectionType {
+  collectionName: 'info_patients';
+  info: {
+    singularName: 'info-patient';
+    pluralName: 'info-patients';
+    displayName: 'Info Patient';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String & Attribute.Required;
+    slug: Attribute.UID<'api::info-patient.info-patient', 'title'> &
+      Attribute.Required;
+    description: Attribute.String & Attribute.Required;
+    content: Attribute.DynamicZone<
+      [
+        'common.header-and-text',
+        'common.image-and-text',
+        'common.image-block3',
+        'common.text',
+        'common.quotes'
+      ]
+    >;
+    seo: Attribute.Component<'shared.seo'>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::info-patient.info-patient',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::info-patient.info-patient',
       'oneToOne',
       'admin::user'
     > &
@@ -1015,9 +1058,9 @@ export interface ApiInformationInformation extends Schema.CollectionType {
     draftAndPublish: true;
   };
   attributes: {
-    title: Attribute.String;
-    description: Attribute.RichText;
-    button: Attribute.String;
+    title: Attribute.String & Attribute.Required;
+    description: Attribute.RichText & Attribute.Required;
+    button: Attribute.String & Attribute.Required;
     slug: Attribute.UID<'api::information.information', 'title'> &
       Attribute.Required;
     content: Attribute.DynamicZone<
@@ -1030,7 +1073,7 @@ export interface ApiInformationInformation extends Schema.CollectionType {
     >;
     priority: Attribute.Integer;
     seo: Attribute.Component<'shared.seo'>;
-    image: Attribute.Media;
+    image: Attribute.Media & Attribute.Required;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1114,13 +1157,13 @@ export interface ApiPackagePackage extends Schema.CollectionType {
     draftAndPublish: true;
   };
   attributes: {
-    title: Attribute.String;
-    description: Attribute.Text;
-    price: Attribute.Decimal;
+    title: Attribute.String & Attribute.Required;
+    description: Attribute.Text & Attribute.Required;
+    price: Attribute.Decimal & Attribute.Required;
     priority: Attribute.Integer;
     features: Attribute.Component<'package.feature', true>;
-    button: Attribute.String;
-    type: Attribute.Enumeration<['normal', 'active']>;
+    button: Attribute.String & Attribute.Required;
+    type: Attribute.Enumeration<['normal', 'active']> & Attribute.Required;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1181,10 +1224,10 @@ export interface ApiPricePrice extends Schema.CollectionType {
     draftAndPublish: false;
   };
   attributes: {
-    categoryName: Attribute.String;
+    categoryName: Attribute.String & Attribute.Required;
     priceList: Attribute.Component<'price.price-list', true>;
-    colRightName: Attribute.String;
-    colLeftName: Attribute.String;
+    colRightName: Attribute.String & Attribute.Required;
+    colLeftName: Attribute.String & Attribute.Required;
     priority: Attribute.Integer;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
@@ -1215,13 +1258,14 @@ export interface ApiServiceService extends Schema.CollectionType {
     draftAndPublish: false;
   };
   attributes: {
-    title: Attribute.String;
+    title: Attribute.String & Attribute.Required;
     slug: Attribute.UID<'api::service.service', 'title'> & Attribute.Required;
     description: Attribute.Text &
+      Attribute.Required &
       Attribute.SetMinMaxLength<{
         maxLength: 350;
       }>;
-    icon: Attribute.Media;
+    icon: Attribute.Media & Attribute.Required;
     serviceDetails: Attribute.DynamicZone<
       [
         'services.about',
@@ -1263,15 +1307,16 @@ export interface ApiTeamTeam extends Schema.CollectionType {
     singularName: 'team';
     pluralName: 'teams';
     displayName: 'Team';
+    description: '';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
-    name: Attribute.String;
-    position: Attribute.String;
-    description: Attribute.Text;
-    image: Attribute.Media;
+    name: Attribute.String & Attribute.Required;
+    position: Attribute.String & Attribute.Required;
+    description: Attribute.Text & Attribute.Required;
+    image: Attribute.Media & Attribute.Required;
     priority: Attribute.Integer;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
@@ -1307,6 +1352,7 @@ declare module '@strapi/types' {
       'api::contact-package.contact-package': ApiContactPackageContactPackage;
       'api::custom-page.custom-page': ApiCustomPageCustomPage;
       'api::feeback.feeback': ApiFeebackFeeback;
+      'api::info-patient.info-patient': ApiInfoPatientInfoPatient;
       'api::information.information': ApiInformationInformation;
       'api::menu.menu': ApiMenuMenu;
       'api::newsletter.newsletter': ApiNewsletterNewsletter;

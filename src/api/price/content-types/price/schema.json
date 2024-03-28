@@ -13,7 +13,8 @@
   "pluginOptions": {},
   "attributes": {
     "categoryName": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "priceList": {
       "displayName": "PriceList",
@@ -22,10 +23,12 @@
       "component": "price.price-list"
     },
     "colRightName": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "colLeftName": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "priority": {
       "type": "integer"

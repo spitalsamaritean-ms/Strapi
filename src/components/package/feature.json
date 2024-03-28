@@ -1,12 +1,14 @@
 {
   "collectionName": "components_package_features",
   "info": {
-    "displayName": "feature"
+    "displayName": "feature",
+    "description": ""
   },
   "options": {},
   "attributes": {
     "title": {
-      "type": "string"
+      "type": "string",
+      "required": true
     }
   }
 }

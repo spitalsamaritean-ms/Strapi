@@ -1,15 +1,18 @@
 {
   "collectionName": "components_price_price_lists",
   "info": {
-    "displayName": "PriceList"
+    "displayName": "PriceList",
+    "description": ""
   },
   "options": {},
   "attributes": {
     "title": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "price": {
-      "type": "integer"
+      "type": "integer",
+      "required": true
     }
   }
 }

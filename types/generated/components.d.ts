@@ -5,11 +5,12 @@ export interface CommonButtons extends Schema.Component {
   info: {
     displayName: 'buttons';
     icon: 'cursor';
+    description: '';
   };
   attributes: {
-    name: Attribute.String;
-    link: Attribute.String;
-    type: Attribute.Enumeration<['primary', 'secondary']>;
+    name: Attribute.String & Attribute.Required;
+    link: Attribute.String & Attribute.Required;
+    type: Attribute.Enumeration<['primary', 'secondary']> & Attribute.Required;
   };
 }
 
@@ -17,10 +18,11 @@ export interface CommonFaq extends Schema.Component {
   collectionName: 'components_common_faqs';
   info: {
     displayName: 'faq';
+    description: '';
   };
   attributes: {
-    title: Attribute.String;
-    description: Attribute.RichText;
+    title: Attribute.String & Attribute.Required;
+    description: Attribute.RichText & Attribute.Required;
   };
 }
 
@@ -28,10 +30,11 @@ export interface CommonHeaderAndText extends Schema.Component {
   collectionName: 'components_common_header_and_texts';
   info: {
     displayName: 'HeaderAndText';
+    description: '';
   };
   attributes: {
-    title: Attribute.String;
-    text: Attribute.RichText;
+    title: Attribute.String & Attribute.Required;
+    text: Attribute.RichText & Attribute.Required;
   };
 }
 
@@ -39,10 +42,11 @@ export interface CommonImageAndText extends Schema.Component {
   collectionName: 'components_common_image_and_texts';
   info: {
     displayName: 'ImageAndText';
+    description: '';
   };
   attributes: {
-    image: Attribute.Media;
-    text: Attribute.RichText;
+    image: Attribute.Media & Attribute.Required;
+    text: Attribute.RichText & Attribute.Required;
   };
 }
 
@@ -50,11 +54,12 @@ export interface CommonImageBlock3 extends Schema.Component {
   collectionName: 'components_common_image_block3s';
   info: {
     displayName: 'ImageBlock3';
+    description: '';
   };
   attributes: {
-    image1: Attribute.Media;
-    image2: Attribute.Media;
-    image3: Attribute.Media;
+    image1: Attribute.Media & Attribute.Required;
+    image2: Attribute.Media & Attribute.Required;
+    image3: Attribute.Media & Attribute.Required;
   };
 }
 
@@ -66,9 +71,9 @@ export interface CommonItem extends Schema.Component {
     description: '';
   };
   attributes: {
-    title: Attribute.String;
-    description: Attribute.RichText;
-    icon: Attribute.Media;
+    title: Attribute.String & Attribute.Required;
+    description: Attribute.RichText & Attribute.Required;
+    icon: Attribute.Media & Attribute.Required;
   };
 }
 
@@ -80,8 +85,8 @@ export interface CommonListItem extends Schema.Component {
     description: '';
   };
   attributes: {
-    title: Attribute.String;
-    description: Attribute.Text;
+    title: Attribute.String & Attribute.Required;
+    description: Attribute.Text & Attribute.Required;
   };
 }
 
@@ -92,9 +97,9 @@ export interface CommonQuotes extends Schema.Component {
     description: '';
   };
   attributes: {
-    text: Attribute.Text;
-    image: Attribute.Media;
-    name: Attribute.String;
+    text: Attribute.Text & Attribute.Required;
+    image: Attribute.Media & Attribute.Required;
+    name: Attribute.String & Attribute.Required;
   };
 }
 
@@ -102,9 +107,10 @@ export interface CommonText extends Schema.Component {
   collectionName: 'components_common_texts';
   info: {
     displayName: 'Text';
+    description: '';
   };
   attributes: {
-    text: Attribute.RichText;
+    text: Attribute.RichText & Attribute.Required;
   };
 }
 
@@ -112,10 +118,11 @@ export interface MenuButton extends Schema.Component {
   collectionName: 'components_menu_buttons';
   info: {
     displayName: 'Button';
+    description: '';
   };
   attributes: {
-    title: Attribute.String;
-    link: Attribute.String;
+    title: Attribute.String & Attribute.Required;
+    link: Attribute.String & Attribute.Required;
   };
 }
 
@@ -126,9 +133,9 @@ export interface MenuDropdown extends Schema.Component {
     description: '';
   };
   attributes: {
-    title: Attribute.String;
-    Links: Attribute.Component<'menu.menu-link', true>;
-    link: Attribute.String;
+    title: Attribute.String & Attribute.Required;
+    Links: Attribute.Component<'menu.menu-link', true> & Attribute.Required;
+    link: Attribute.String & Attribute.Required;
   };
 }
 
@@ -136,10 +143,11 @@ export interface MenuMenuLink extends Schema.Component {
   collectionName: 'components_menu_menu_links';
   info: {
     displayName: 'MenuLink';
+    description: '';
   };
   attributes: {
-    title: Attribute.String;
-    link: Attribute.String;
+    title: Attribute.String & Attribute.Required;
+    link: Attribute.String & Attribute.Required;
   };
 }
 
@@ -147,9 +155,10 @@ export interface PackageFeature extends Schema.Component {
   collectionName: 'components_package_features';
   info: {
     displayName: 'feature';
+    description: '';
   };
   attributes: {
-    title: Attribute.String;
+    title: Attribute.String & Attribute.Required;
   };
 }
 
@@ -157,10 +166,11 @@ export interface PricePriceList extends Schema.Component {
   collectionName: 'components_price_price_lists';
   info: {
     displayName: 'PriceList';
+    description: '';
   };
   attributes: {
-    title: Attribute.String;
-    price: Attribute.Integer;
+    title: Attribute.String & Attribute.Required;
+    price: Attribute.Integer & Attribute.Required;
   };
 }
 
@@ -168,13 +178,14 @@ export interface ServicesAbout extends Schema.Component {
   collectionName: 'components_services_abouts';
   info: {
     displayName: 'About';
+    description: '';
   };
   attributes: {
-    lead: Attribute.String;
-    title: Attribute.String;
-    description: Attribute.RichText;
-    imageOne: Attribute.Media;
-    imageTwo: Attribute.Media;
+    lead: Attribute.String & Attribute.Required;
+    title: Attribute.String & Attribute.Required;
+    description: Attribute.RichText & Attribute.Required;
+    imageOne: Attribute.Media & Attribute.Required;
+    imageTwo: Attribute.Media & Attribute.Required;
   };
 }
 
@@ -182,12 +193,13 @@ export interface ServicesAbout2 extends Schema.Component {
   collectionName: 'components_services_about2s';
   info: {
     displayName: 'About2';
+    description: '';
   };
   attributes: {
-    lead: Attribute.String;
-    title: Attribute.String;
-    description: Attribute.RichText;
-    image: Attribute.Media;
+    lead: Attribute.String & Attribute.Required;
+    title: Attribute.String & Attribute.Required;
+    description: Attribute.RichText & Attribute.Required;
+    image: Attribute.Media & Attribute.Required;
     items: Attribute.Component<'common.list-item', true>;
   };
 }
@@ -199,8 +211,8 @@ export interface ServicesFaq2 extends Schema.Component {
     description: '';
   };
   attributes: {
-    title: Attribute.String;
-    description: Attribute.Text;
+    title: Attribute.String & Attribute.Required;
+    description: Attribute.Text & Attribute.Required;
     faq: Attribute.Component<'common.faq', true>;
   };
 }
@@ -212,8 +224,8 @@ export interface ServicesFaq extends Schema.Component {
     description: '';
   };
   attributes: {
-    title: Attribute.String;
-    description: Attribute.Text;
+    title: Attribute.String & Attribute.Required;
+    description: Attribute.Text & Attribute.Required;
     items: Attribute.Component<'common.list-item', true>;
     buttons: Attribute.Component<'common.buttons', true>;
     faq: Attribute.Component<'common.faq', true>;
@@ -225,11 +237,12 @@ export interface ServicesHero extends Schema.Component {
   info: {
     displayName: 'Hero';
     icon: 'bold';
+    description: '';
   };
   attributes: {
-    lead: Attribute.String;
-    title: Attribute.String;
-    description: Attribute.Text;
+    lead: Attribute.String & Attribute.Required;
+    title: Attribute.String & Attribute.Required;
+    description: Attribute.Text & Attribute.Required;
     buttons: Attribute.Component<'common.buttons', true>;
   };
 }
@@ -242,8 +255,8 @@ export interface ServicesList extends Schema.Component {
     description: '';
   };
   attributes: {
-    title: Attribute.String;
-    description: Attribute.Text;
+    title: Attribute.String & Attribute.Required;
+    description: Attribute.Text & Attribute.Required;
     items: Attribute.Component<'common.item', true>;
   };
 }

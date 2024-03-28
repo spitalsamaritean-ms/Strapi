@@ -2,18 +2,22 @@
   "collectionName": "components_services_heroes",
   "info": {
     "displayName": "Hero",
-    "icon": "bold"
+    "icon": "bold",
+    "description": ""
   },
   "options": {},
   "attributes": {
     "lead": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "title": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "description": {
-      "type": "text"
+      "type": "text",
+      "required": true
     },
     "buttons": {
       "displayName": "buttons",

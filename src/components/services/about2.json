@@ -1,25 +1,30 @@
 {
   "collectionName": "components_services_about2s",
   "info": {
-    "displayName": "About2"
+    "displayName": "About2",
+    "description": ""
   },
   "options": {},
   "attributes": {
     "lead": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "title": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "description": {
-      "type": "richtext"
+      "type": "richtext",
+      "required": true
     },
     "image": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
       "allowedTypes": [
         "images"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
     },
     "items": {
       "displayName": "ListItem",

@@ -1,12 +1,14 @@
 {
   "collectionName": "components_common_texts",
   "info": {
-    "displayName": "Text"
+    "displayName": "Text",
+    "description": ""
   },
   "options": {},
   "attributes": {
     "text": {
-      "type": "richtext"
+      "type": "richtext",
+      "required": true
     }
   }
 }

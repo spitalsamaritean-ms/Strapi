@@ -13,7 +13,8 @@
   "pluginOptions": {},
   "attributes": {
     "title": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "slug": {
       "type": "uid",
@@ -22,12 +23,13 @@
     },
     "description": {
       "type": "text",
-      "maxLength": 350
+      "maxLength": 350,
+      "required": true
     },
     "icon": {
       "type": "media",
       "multiple": false,
-      "required": false,
+      "required": true,
       "allowedTypes": [
         "images"
       ]
@@ -55,7 +57,8 @@
     },
     "otherPage": {
       "type": "boolean",
-      "default": false
+      "default": false,
+      "required": false
     },
     "priority": {
       "type": "integer",

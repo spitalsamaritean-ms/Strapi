@@ -15,7 +15,7 @@ module.exports = {
       );
       await strapi.plugins["email"].services.email.send(
         {
-          to: "office@spitalulsamaritean.ro",
+          to: "info@spitalulsamaritean.ro",
           from: "no-reply@spitalulsamaritean.ro",
           subject: "Newsletter",
           html: `${result.email}`,

@@ -1,11 +1,10 @@
 {
   "kind": "collectionType",
-  "collectionName": "informations",
+  "collectionName": "info_patients",
   "info": {
-    "singularName": "information",
-    "pluralName": "informations",
-    "displayName": "Information",
-    "description": ""
+    "singularName": "info-patient",
+    "pluralName": "info-patients",
+    "displayName": "Info Patient"
   },
   "options": {
     "draftAndPublish": true
@@ -16,17 +15,13 @@
       "type": "string",
       "required": true
     },
-    "description": {
-      "type": "richtext",
-      "required": true
-    },
-    "button": {
-      "type": "string",
-      "required": true
-    },
     "slug": {
       "type": "uid",
       "targetField": "title",
+      "required": true
+    },
+    "description": {
+      "type": "string",
       "required": true
     },
     "content": {
@@ -35,24 +30,14 @@
         "common.header-and-text",
         "common.image-and-text",
         "common.image-block3",
-        "common.text"
+        "common.text",
+        "common.quotes"
       ]
-    },
-    "priority": {
-      "type": "integer"
     },
     "seo": {
       "type": "component",
       "repeatable": false,
       "component": "shared.seo"
-    },
-    "image": {
-      "type": "media",
-      "multiple": false,
-      "required": true,
-      "allowedTypes": [
-        "images"
-      ]
     }
   }
 }
