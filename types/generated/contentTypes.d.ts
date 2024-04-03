@@ -1009,6 +1009,7 @@ export interface ApiInfoPatientInfoPatient extends Schema.CollectionType {
     singularName: 'info-patient';
     pluralName: 'info-patients';
     displayName: 'Info Patient';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -1028,6 +1029,11 @@ export interface ApiInfoPatientInfoPatient extends Schema.CollectionType {
       ]
     >;
     seo: Attribute.Component<'shared.seo'>;
+    image: Attribute.Media & Attribute.Required;
+    topPosition: Attribute.Boolean &
+      Attribute.Required &
+      Attribute.DefaultTo<true>;
+    priority: Attribute.Integer;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

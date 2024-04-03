@@ -4,7 +4,8 @@
   "info": {
     "singularName": "info-patient",
     "pluralName": "info-patients",
-    "displayName": "Info Patient"
+    "displayName": "Info Patient",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -38,6 +39,22 @@
       "type": "component",
       "repeatable": false,
       "component": "shared.seo"
+    },
+    "image": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": true
+    },
+    "topPosition": {
+      "type": "boolean",
+      "default": true,
+      "required": true
+    },
+    "priority": {
+      "type": "integer"
     }
   }
 }
