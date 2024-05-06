@@ -951,6 +951,7 @@ export interface ApiCustomPageCustomPage extends Schema.CollectionType {
     title: Attribute.String;
     slug: Attribute.UID<'api::custom-page.custom-page', 'title'> &
       Attribute.Required;
+    file: Attribute.Media;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

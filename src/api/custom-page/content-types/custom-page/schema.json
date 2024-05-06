@@ -34,6 +34,13 @@
       "type": "uid",
       "targetField": "title",
       "required": true
+    },
+    "file": {
+      "allowedTypes": [
+        "files"
+      ],
+      "type": "media",
+      "multiple": false
     }
   }
 }
