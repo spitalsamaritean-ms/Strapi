@@ -817,6 +817,50 @@ export interface PluginEmailDesignerEmailTemplate
   };
 }
 
+export interface ApiAppointmentAppointment extends Schema.CollectionType {
+  collectionName: 'appointments';
+  info: {
+    singularName: 'appointment';
+    pluralName: 'appointments';
+    displayName: 'Appointment';
+    description: '';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    first_name: Attribute.String;
+    last_name: Attribute.String;
+    age: Attribute.Integer;
+    email: Attribute.Email;
+    phone_number: Attribute.String;
+    service: Attribute.Relation<
+      'api::appointment.appointment',
+      'oneToOne',
+      'api::service.service'
+    >;
+    address: Attribute.Text;
+    appointment_date: Attribute.Date;
+    checked: Attribute.Boolean &
+      Attribute.Required &
+      Attribute.DefaultTo<false>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::appointment.appointment',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::appointment.appointment',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiBlogBlog extends Schema.CollectionType {
   collectionName: 'blogs';
   info: {
@@ -1354,6 +1398,7 @@ declare module '@strapi/types' {
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'plugin::i18n.locale': PluginI18NLocale;
       'plugin::email-designer.email-template': PluginEmailDesignerEmailTemplate;
+      'api::appointment.appointment': ApiAppointmentAppointment;
       'api::blog.blog': ApiBlogBlog;
       'api::contact.contact': ApiContactContact;
       'api::contact-package.contact-package': ApiContactPackageContactPackage;
