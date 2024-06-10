@@ -1,14 +1,14 @@
 module.exports = {
   async afterCreate(event) {
     const { result } = event;
-    const lastname = event.last_name;
-    const firstname = event.first_name;
-    const phone = event.phone_number;
-    const email = event.email;
-    const address = event.address;
-    const age = event.age;
-    const service = event.result.service.title;
-    const appointment_date = event.appointment_date ? event.appointment_date : null;
+    const lastname = result.last_name;
+    const firstname = result.first_name;
+    const phone = result.phone_number;
+    const email = result.email;
+    const address = result.address;
+    const age = result.age;
+    const service = result.service.title;
+    const appointment_date = result.appointment_date ? result.appointment_date : null;
 
     try {
         // await strapi.plugins["email-designer"].services.email.sendTemplatedEmail(
