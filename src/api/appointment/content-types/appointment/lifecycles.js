@@ -7,24 +7,24 @@ module.exports = {
     const email = event.email;
     const address = event.address;
     const age = event.age;
-    const service = await strapi.db.query("api::service.service").findOne(event.service).attributes.title;
+    const service = event.result.service.title;
     const appointment_date = event.appointment_date ? event.appointment_date : null;
 
     try {
-        await strapi.plugins["email-designer"].services.email.sendTemplatedEmail(
-          {
-            to: email,
-            from: "no-reply@spitalulsamaritean.ro",
-          },
-          {
-            templateReferenceId: 2,
-            subject: `Spitalul Samaritean Form`,
-          },
-          {
-            name: name,
-            lastname: lastname,
-          }
-        );
+        // await strapi.plugins["email-designer"].services.email.sendTemplatedEmail(
+        //   {
+        //     to: email,
+        //     from: "no-reply@spitalulsamaritean.ro",
+        //   },
+        //   {
+        //     templateReferenceId: 2,
+        //     subject: `Spitalul Samaritean Form`,
+        //   },
+        //   {
+        //     name: firstname,
+        //     lastname: lastname,
+        //   }
+        // );
         await strapi.plugins["email"].services.email.send({
           //to: "info@spitalulsamaritean.ro",
           to: "adorjan.demeny@prismasolutions.ro",
