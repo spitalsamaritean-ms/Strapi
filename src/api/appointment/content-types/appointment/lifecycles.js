@@ -7,7 +7,7 @@ module.exports = {
     const email = event.email;
     const address = event.address;
     const age = event.age;
-    const service = await strapi.db.query("api::services.services").findOne(event.service).attributes.title;
+    const service = await strapi.db.query("api::service.service").findOne(event.service).attributes.title;
     const appointment_date = event.appointment_date ? event.appointment_date : null;
 
     try {
