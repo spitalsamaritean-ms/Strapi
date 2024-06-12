@@ -7,7 +7,6 @@ module.exports = {
     const email = result.email;
     const address = result.address;
     const age = result.age;
-    console.log(event);
     const service = result.service.title;
     const appointment_date = result.appointment_date ? result.appointment_date : null;
 

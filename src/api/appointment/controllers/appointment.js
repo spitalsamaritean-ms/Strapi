@@ -26,7 +26,6 @@ module.exports = createCoreController("api::appointment.appointment", ({ strapi 
           populate: ['service'],
         }
       );
-      console.log(newAppointment);
       return newAppointment;
     },
   })
