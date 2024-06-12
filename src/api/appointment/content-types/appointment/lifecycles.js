@@ -27,7 +27,7 @@ module.exports = {
         // );
         await strapi.plugins["email"].services.email.send({
           //to: "info@spitalulsamaritean.ro",
-          to: "adorjan.demeny@prismasolutions.ro",
+          to: "info@spitalulsamaritean.ro",
           from: "no-reply@spitalulsamaritean.ro",
           subject: "Appointment Request",
           html: `
