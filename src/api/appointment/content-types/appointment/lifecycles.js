@@ -1,12 +1,13 @@
 module.exports = {
   async afterCreate(event) {
-    const { result } = event;
+    const { result, params } = event;
     const lastname = result.last_name;
     const firstname = result.first_name;
     const phone = result.phone_number;
     const email = result.email;
     const address = result.address;
     const age = result.age;
+    console.log(event);
     const service = result.service.title;
     const appointment_date = result.appointment_date ? result.appointment_date : null;
 
