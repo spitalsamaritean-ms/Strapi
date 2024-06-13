@@ -1297,6 +1297,89 @@ export interface ApiPricePrice extends Schema.CollectionType {
   };
 }
 
+export interface ApiProductProduct extends Schema.CollectionType {
+  collectionName: 'products';
+  info: {
+    singularName: 'product';
+    pluralName: 'products';
+    displayName: 'Product';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String;
+    short_description: Attribute.Text;
+    description: Attribute.RichText;
+    price: Attribute.Decimal & Attribute.Required;
+    discount: Attribute.Decimal;
+    number_of_items: Attribute.Integer &
+      Attribute.Required &
+      Attribute.DefaultTo<1>;
+    product_images: Attribute.Media;
+    priority: Attribute.Integer & Attribute.Required & Attribute.DefaultTo<0>;
+    product_category: Attribute.Relation<
+      'api::product.product',
+      'manyToOne',
+      'api::product-category.product-category'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::product.product',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::product.product',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiProductCategoryProductCategory
+  extends Schema.CollectionType {
+  collectionName: 'product_categories';
+  info: {
+    singularName: 'product-category';
+    pluralName: 'product-categories';
+    displayName: 'ProductCategory';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String & Attribute.Required;
+    image: Attribute.Media;
+    priority: Attribute.Integer & Attribute.Required & Attribute.DefaultTo<0>;
+    products: Attribute.Relation<
+      'api::product-category.product-category',
+      'oneToMany',
+      'api::product.product'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::product-category.product-category',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::product-category.product-category',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiServiceService extends Schema.CollectionType {
   collectionName: 'services';
   info: {
@@ -1411,6 +1494,8 @@ declare module '@strapi/types' {
       'api::package.package': ApiPackagePackage;
       'api::partner.partner': ApiPartnerPartner;
       'api::price.price': ApiPricePrice;
+      'api::product.product': ApiProductProduct;
+      'api::product-category.product-category': ApiProductCategoryProductCategory;
       'api::service.service': ApiServiceService;
       'api::team.team': ApiTeamTeam;
     }
