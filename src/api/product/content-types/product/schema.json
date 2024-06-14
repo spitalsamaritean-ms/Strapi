@@ -21,11 +21,11 @@
     "description": {
       "type": "richtext"
     },
-    "price": {
+    "new_price": {
       "type": "decimal",
       "required": true
     },
-    "discount": {
+    "old_price": {
       "type": "decimal"
     },
     "number_of_items": {
@@ -53,11 +53,16 @@
       "inversedBy": "products"
     },
     "cover_image": {
-      "allowedTypes": [
-        "images"
-      ],
       "type": "media",
       "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "title",
       "required": true
     }
   }

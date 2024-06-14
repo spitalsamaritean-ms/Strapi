@@ -1312,8 +1312,8 @@ export interface ApiProductProduct extends Schema.CollectionType {
     title: Attribute.String;
     short_description: Attribute.Text;
     description: Attribute.RichText;
-    price: Attribute.Decimal & Attribute.Required;
-    discount: Attribute.Decimal;
+    new_price: Attribute.Decimal & Attribute.Required;
+    old_price: Attribute.Decimal;
     number_of_items: Attribute.Integer &
       Attribute.Required &
       Attribute.DefaultTo<1>;
@@ -1325,6 +1325,7 @@ export interface ApiProductProduct extends Schema.CollectionType {
       'api::product-category.product-category'
     >;
     cover_image: Attribute.Media & Attribute.Required;
+    slug: Attribute.UID<'api::product.product', 'title'> & Attribute.Required;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
