@@ -1324,6 +1324,7 @@ export interface ApiProductProduct extends Schema.CollectionType {
       'manyToOne',
       'api::product-category.product-category'
     >;
+    cover_image: Attribute.Media & Attribute.Required;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
