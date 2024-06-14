@@ -15,10 +15,10 @@
     "title": {
       "type": "string"
     },
-    "short_description": {
+    "short_desc": {
       "type": "text"
     },
-    "description": {
+    "desc": {
       "type": "richtext"
     },
     "new_price": {
@@ -28,12 +28,12 @@
     "old_price": {
       "type": "decimal"
     },
-    "number_of_items": {
+    "num_of_items": {
       "type": "integer",
       "required": true,
       "default": 1
     },
-    "product_images": {
+    "product_imgs": {
       "type": "media",
       "multiple": true,
       "required": false,
@@ -46,7 +46,7 @@
       "required": true,
       "default": 0
     },
-    "product_category": {
+    "prod_category": {
       "type": "relation",
       "relation": "manyToOne",
       "target": "api::product-category.product-category",

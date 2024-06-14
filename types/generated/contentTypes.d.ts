@@ -1310,16 +1310,16 @@ export interface ApiProductProduct extends Schema.CollectionType {
   };
   attributes: {
     title: Attribute.String;
-    short_description: Attribute.Text;
-    description: Attribute.RichText;
+    short_desc: Attribute.Text;
+    desc: Attribute.RichText;
     new_price: Attribute.Decimal & Attribute.Required;
     old_price: Attribute.Decimal;
-    number_of_items: Attribute.Integer &
+    num_of_items: Attribute.Integer &
       Attribute.Required &
       Attribute.DefaultTo<1>;
-    product_images: Attribute.Media;
+    product_imgs: Attribute.Media;
     priority: Attribute.Integer & Attribute.Required & Attribute.DefaultTo<0>;
-    product_category: Attribute.Relation<
+    prod_category: Attribute.Relation<
       'api::product.product',
       'manyToOne',
       'api::product-category.product-category'
