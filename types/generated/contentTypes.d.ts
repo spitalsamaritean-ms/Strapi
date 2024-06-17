@@ -1351,6 +1351,7 @@ export interface ApiProductCategoryProductCategory
     singularName: 'product-category';
     pluralName: 'product-categories';
     displayName: 'ProductCategory';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -1364,6 +1365,8 @@ export interface ApiProductCategoryProductCategory
       'oneToMany',
       'api::product.product'
     >;
+    slug: Attribute.UID<'api::product-category.product-category', 'title'> &
+      Attribute.Required;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
