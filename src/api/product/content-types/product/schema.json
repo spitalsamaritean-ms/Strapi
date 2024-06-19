@@ -64,6 +64,11 @@
       "type": "uid",
       "targetField": "title",
       "required": true
+    },
+    "highlighted_product": {
+      "type": "boolean",
+      "default": false,
+      "required": true
     }
   }
 }

@@ -1326,6 +1326,9 @@ export interface ApiProductProduct extends Schema.CollectionType {
     >;
     cover_image: Attribute.Media & Attribute.Required;
     slug: Attribute.UID<'api::product.product', 'title'> & Attribute.Required;
+    highlighted_product: Attribute.Boolean &
+      Attribute.Required &
+      Attribute.DefaultTo<false>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
