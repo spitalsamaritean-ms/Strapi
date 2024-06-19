@@ -1443,6 +1443,39 @@ export interface ApiServiceService extends Schema.CollectionType {
   };
 }
 
+export interface ApiShopValueShopValue extends Schema.CollectionType {
+  collectionName: 'shop_values';
+  info: {
+    singularName: 'shop-value';
+    pluralName: 'shop-values';
+    displayName: 'ShopValue';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String & Attribute.Required;
+    short_desc: Attribute.Text;
+    icon: Attribute.Media & Attribute.Required;
+    priority: Attribute.Integer & Attribute.Required & Attribute.DefaultTo<0>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::shop-value.shop-value',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::shop-value.shop-value',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiTeamTeam extends Schema.CollectionType {
   collectionName: 'teams';
   info: {
@@ -1505,6 +1538,7 @@ declare module '@strapi/types' {
       'api::product.product': ApiProductProduct;
       'api::product-category.product-category': ApiProductCategoryProductCategory;
       'api::service.service': ApiServiceService;
+      'api::shop-value.shop-value': ApiShopValueShopValue;
       'api::team.team': ApiTeamTeam;
     }
   }
