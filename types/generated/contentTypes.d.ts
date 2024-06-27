@@ -1371,6 +1371,7 @@ export interface ApiProductProduct extends Schema.CollectionType {
     highlighted_product: Attribute.Boolean &
       Attribute.Required &
       Attribute.DefaultTo<false>;
+    sku: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
