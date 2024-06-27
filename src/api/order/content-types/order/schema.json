@@ -1,0 +1,36 @@
+{
+  "kind": "collectionType",
+  "collectionName": "orders",
+  "info": {
+    "singularName": "order",
+    "pluralName": "orders",
+    "displayName": "Order"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "product_list": {
+      "displayName": "product_list",
+      "type": "component",
+      "repeatable": true,
+      "component": "shop.product-list"
+    },
+    "full_order_price": {
+      "type": "decimal"
+    },
+    "order_status": {
+      "type": "enumeration",
+      "enum": [
+        "În desfășurare",
+        "Livrat",
+        "Anulat",
+        "Completat",
+        "Discontinuat",
+        "Eroare",
+        "Programat"
+      ]
+    }
+  }
+}

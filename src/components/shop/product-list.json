@@ -1,0 +1,24 @@
+{
+  "collectionName": "components_shop_product_lists",
+  "info": {
+    "displayName": "product_list",
+    "icon": "shoppingCart"
+  },
+  "options": {},
+  "attributes": {
+    "products": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::product.product"
+    },
+    "product_order_quantity": {
+      "type": "integer"
+    },
+    "product_order_price": {
+      "type": "decimal"
+    },
+    "discount": {
+      "type": "integer"
+    }
+  }
+}

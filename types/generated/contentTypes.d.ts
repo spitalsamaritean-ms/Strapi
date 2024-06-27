@@ -1196,6 +1196,48 @@ export interface ApiNewsletterNewsletter extends Schema.CollectionType {
   };
 }
 
+export interface ApiOrderOrder extends Schema.CollectionType {
+  collectionName: 'orders';
+  info: {
+    singularName: 'order';
+    pluralName: 'orders';
+    displayName: 'Order';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    product_list: Attribute.Component<'shop.product-list', true>;
+    full_order_price: Attribute.Decimal;
+    order_status: Attribute.Enumeration<
+      [
+        '\u00CEn desf\u0103\u0219urare',
+        'Livrat',
+        'Anulat',
+        'Completat',
+        'Discontinuat',
+        'Eroare',
+        'Programat'
+      ]
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::order.order',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::order.order',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiPackagePackage extends Schema.CollectionType {
   collectionName: 'packages';
   info: {
@@ -1532,6 +1574,7 @@ declare module '@strapi/types' {
       'api::information.information': ApiInformationInformation;
       'api::menu.menu': ApiMenuMenu;
       'api::newsletter.newsletter': ApiNewsletterNewsletter;
+      'api::order.order': ApiOrderOrder;
       'api::package.package': ApiPackagePackage;
       'api::partner.partner': ApiPartnerPartner;
       'api::price.price': ApiPricePrice;

@@ -312,6 +312,24 @@ export interface SharedSeo extends Schema.Component {
   };
 }
 
+export interface ShopProductList extends Schema.Component {
+  collectionName: 'components_shop_product_lists';
+  info: {
+    displayName: 'product_list';
+    icon: 'shoppingCart';
+  };
+  attributes: {
+    products: Attribute.Relation<
+      'shop.product-list',
+      'oneToMany',
+      'api::product.product'
+    >;
+    product_order_quantity: Attribute.Integer;
+    product_order_price: Attribute.Decimal;
+    discount: Attribute.Integer;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface Components {
@@ -337,6 +355,7 @@ declare module '@strapi/types' {
       'services.list': ServicesList;
       'shared.meta-social': SharedMetaSocial;
       'shared.seo': SharedSeo;
+      'shop.product-list': ShopProductList;
     }
   }
 }
