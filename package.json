@@ -27,7 +27,6 @@
     "react-router-dom": "^5.2.0",
     "strapi-plugin-email-designer": "^2.2.1",
     "strapi-plugin-populate-deep": "^3.0.1",
-    "strapi-stripe": "^3.4.1",
     "styled-components": "^5.2.1"
   },
   "devDependencies": {},
