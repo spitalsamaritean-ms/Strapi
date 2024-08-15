@@ -4,7 +4,8 @@
   "info": {
     "singularName": "order",
     "pluralName": "orders",
-    "displayName": "Order"
+    "displayName": "Order",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -31,6 +32,25 @@
         "Eroare",
         "Programat"
       ]
+    },
+    "transaction_id": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string"
+    },
+    "message": {
+      "type": "text"
+    },
+    "billing": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shop.billing-date"
+    },
+    "delivery": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shop.delivery-date"
     }
   }
 }

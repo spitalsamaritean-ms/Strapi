@@ -1,0 +1,42 @@
+{
+  "collectionName": "components_shop_billing_dates",
+  "info": {
+    "displayName": "Billing_date"
+  },
+  "options": {},
+  "attributes": {
+    "company_name": {
+      "type": "string"
+    },
+    "company_cif": {
+      "type": "string"
+    },
+    "company_reg_number": {
+      "type": "string"
+    },
+    "first_name": {
+      "type": "string"
+    },
+    "last_name": {
+      "type": "string"
+    },
+    "email": {
+      "type": "string"
+    },
+    "phone_number": {
+      "type": "string"
+    },
+    "billing_county": {
+      "type": "string"
+    },
+    "billing_localities": {
+      "type": "string"
+    },
+    "billing_address": {
+      "type": "string"
+    },
+    "billing_zipcode": {
+      "type": "string"
+    }
+  }
+}

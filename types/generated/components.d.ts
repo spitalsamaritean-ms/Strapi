@@ -312,21 +312,54 @@ export interface SharedSeo extends Schema.Component {
   };
 }
 
+export interface ShopBillingDate extends Schema.Component {
+  collectionName: 'components_shop_billing_dates';
+  info: {
+    displayName: 'Billing_date';
+  };
+  attributes: {
+    company_name: Attribute.String;
+    company_cif: Attribute.String;
+    company_reg_number: Attribute.String;
+    first_name: Attribute.String;
+    last_name: Attribute.String;
+    email: Attribute.String;
+    phone_number: Attribute.String;
+    billing_county: Attribute.String;
+    billing_localities: Attribute.String;
+    billing_address: Attribute.String;
+    billing_zipcode: Attribute.String;
+  };
+}
+
+export interface ShopDeliveryDate extends Schema.Component {
+  collectionName: 'components_shop_delivery_dates';
+  info: {
+    displayName: 'Delivery_date';
+  };
+  attributes: {
+    delivery_first_name: Attribute.String;
+    delivery_last_name: Attribute.String;
+    delivery_phone_number: Attribute.String;
+    delivery_county: Attribute.String;
+    delivery_address: Attribute.String;
+    delivery_localities: Attribute.String;
+    delivery_zipcode: Attribute.String;
+  };
+}
+
 export interface ShopProductList extends Schema.Component {
   collectionName: 'components_shop_product_lists';
   info: {
     displayName: 'product_list';
     icon: 'shoppingCart';
+    description: '';
   };
   attributes: {
-    products: Attribute.Relation<
-      'shop.product-list',
-      'oneToMany',
-      'api::product.product'
-    >;
     product_order_quantity: Attribute.Integer;
     product_order_price: Attribute.Decimal;
     discount: Attribute.Integer;
+    product_name: Attribute.String;
   };
 }
 
@@ -355,6 +388,8 @@ declare module '@strapi/types' {
       'services.list': ServicesList;
       'shared.meta-social': SharedMetaSocial;
       'shared.seo': SharedSeo;
+      'shop.billing-date': ShopBillingDate;
+      'shop.delivery-date': ShopDeliveryDate;
       'shop.product-list': ShopProductList;
     }
   }

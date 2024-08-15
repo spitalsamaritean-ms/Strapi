@@ -1,0 +1,30 @@
+{
+  "collectionName": "components_shop_delivery_dates",
+  "info": {
+    "displayName": "Delivery_date"
+  },
+  "options": {},
+  "attributes": {
+    "delivery_first_name": {
+      "type": "string"
+    },
+    "delivery_last_name": {
+      "type": "string"
+    },
+    "delivery_phone_number": {
+      "type": "string"
+    },
+    "delivery_county": {
+      "type": "string"
+    },
+    "delivery_address": {
+      "type": "string"
+    },
+    "delivery_localities": {
+      "type": "string"
+    },
+    "delivery_zipcode": {
+      "type": "string"
+    }
+  }
+}
