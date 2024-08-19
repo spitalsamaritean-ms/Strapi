@@ -79,7 +79,9 @@
         "TVA: 5%",
         "TVA: 9%",
         "TVA: 19%"
-      ]
+      ],
+      "required": true,
+      "default": "TVA: 5%"
     }
   }
 }

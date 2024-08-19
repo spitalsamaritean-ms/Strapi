@@ -1378,7 +1378,9 @@ export interface ApiProductProduct extends Schema.CollectionType {
       Attribute.Required &
       Attribute.DefaultTo<false>;
     sku: Attribute.String;
-    TVA: Attribute.Enumeration<['TVA: 5%', 'TVA: 9%', 'TVA: 19%']>;
+    TVA: Attribute.Enumeration<['TVA: 5%', 'TVA: 9%', 'TVA: 19%']> &
+      Attribute.Required &
+      Attribute.DefaultTo<'TVA: 5%'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
