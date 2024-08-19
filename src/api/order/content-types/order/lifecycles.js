@@ -1,0 +1,110 @@
+module.exports = {
+  async afterCreate(event) {
+    const { result } = event;
+
+    // Fetch the full details of the created order
+    const fullOrder = await strapi.entityService.findOne(
+      "api::order.order",
+      result.id,
+      {
+        populate: {
+          billing: true,
+          delivery: true,
+          product_list: true,
+        },
+      }
+    );
+
+    // console.log(fullOrder);
+
+    // Extract user details
+    const name = fullOrder.billing.first_name;
+    const lastname = fullOrder.billing.last_name;
+    const email = fullOrder.billing.email;
+    const phone = fullOrder.billing.phone_number;
+    const message = fullOrder.message;
+
+    // Extract delivery details, use billing details if delivery is missing
+    const deliveryCounty =
+      fullOrder.delivery.delivery_county || fullOrder.billing.billing_county;
+    const deliveryLocalities =
+      fullOrder.delivery.delivery_localities ||
+      fullOrder.billing.billing_localities;
+    const deliveryAddress =
+      fullOrder.delivery.delivery_address || fullOrder.billing.billing_address;
+    const deliveryZipcode =
+      fullOrder.delivery.delivery_zipcode || fullOrder.billing.billing_zipcode;
+
+    // Extract product list
+    const products = fullOrder.product_list.map((product) => ({
+      name: product.product_name,
+      quantity: product.product_order_quantity,
+      price: product.product_order_price,
+    }));
+
+    // Calculate total price
+    const total = fullOrder.full_order_price;
+
+    try {
+      // Send templated email to user
+      await strapi.plugins["email-designer"].services.email.sendTemplatedEmail(
+        {
+          to: email,
+          from: "no-reply@spitalulsamaritean.ro",
+        },
+        {
+          templateReferenceId: 10,
+          subject: `Köszönjük a rendelését`,
+        },
+        {
+          USER: {
+            firstname: name,
+            lastname: lastname,
+          },
+          order: {
+            products: products,
+          },
+          shipping: {
+            county: deliveryCounty,
+            localities: deliveryLocalities,
+            address: deliveryAddress,
+            zipcode: deliveryZipcode,
+          },
+          total: total,
+        }
+      );
+
+      // Send notification email to admin
+      await strapi.plugins["email"].services.email.send({
+        to: "attila2000.03.05@gmail.com",
+        from: "no-reply@spitalulsamaritean.ro",
+        subject: "Kapcsolatfelvételi űrlap",
+        html: `
+          Név: ${name}<br>
+          Vezetéknév: ${lastname}<br>
+          Email: ${email}<br>
+          Telefon: ${phone}<br>
+          Üzenet: ${message}<br>
+          <br>
+          Rendelési adatok:<br>
+          ${products
+            .map(
+              (product) =>
+                `- ${product.name} (Mennyiség: ${product.quantity}, Ár: ${product.price})`
+            )
+            .join("<br>")}
+          <br>
+          Összesen: ${total}<br>
+          <br>
+          Szállítási adatok:<br>
+          Megye: ${deliveryCounty}<br>
+          Település: ${deliveryLocalities}<br>
+          Cím: ${deliveryAddress ? deliveryAddress : "N/A"}<br>
+          Irányítószám: ${deliveryZipcode ? deliveryZipcode : "N/A"}<br>
+        `,
+      });
+    } catch (err) {
+      console.log(err);
+    }
+  },
+};

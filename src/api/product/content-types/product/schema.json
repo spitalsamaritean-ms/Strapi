@@ -72,6 +72,14 @@
     },
     "sku": {
       "type": "string"
+    },
+    "TVA": {
+      "type": "enumeration",
+      "enum": [
+        "TVA: 5%",
+        "TVA: 9%",
+        "TVA: 19%"
+      ]
     }
   }
 }
