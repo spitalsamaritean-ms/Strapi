@@ -1,0 +1,354 @@
+{
+  "kind": "collectionType",
+  "collectionName": "nutritions",
+  "info": {
+    "singularName": "nutrition",
+    "pluralName": "nutritions",
+    "displayName": "Nutrition",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Nume": {
+      "type": "string"
+    },
+    "Oras": {
+      "type": "string"
+    },
+    "Judet": {
+      "type": "string"
+    },
+    "Adresa": {
+      "type": "string"
+    },
+    "Telefon": {
+      "type": "string"
+    },
+    "Email": {
+      "type": "string"
+    },
+    "Varsta": {
+      "type": "integer"
+    },
+    "Sexul": {
+      "type": "enumeration",
+      "enum": [
+        "Alege",
+        "Bărbat",
+        "Femeie"
+      ]
+    },
+    "Mediul_de_provenienta": {
+      "type": "enumeration",
+      "enum": [
+        "Alege",
+        "Urban",
+        "Rural"
+      ]
+    },
+    "Studii_medii": {
+      "type": "enumeration",
+      "enum": [
+        "Alege",
+        "Gimnaziu",
+        "Liceu",
+        "Postliceal",
+        "Școala Tehnică"
+      ]
+    },
+    "Studii_superioare": {
+      "type": "enumeration",
+      "enum": [
+        "Alege",
+        "Facultatea",
+        "Masterat",
+        "Doctorat"
+      ]
+    },
+    "Status_social": {
+      "type": "enumeration",
+      "enum": [
+        "Alege",
+        "Angajat (stat)",
+        "Angajat (privat)",
+        "Permanent",
+        "Ocazional",
+        "Șomer",
+        "Elev",
+        "Student",
+        "Masterand"
+      ]
+    },
+    "Status_marital": {
+      "type": "enumeration",
+      "enum": [
+        "Alege",
+        "Căsătorit/ă",
+        "Necăsătorit/ă",
+        "Divorțat/ă",
+        "Văduv/ă",
+        "Consensual"
+      ]
+    },
+    "Profesia": {
+      "type": "string"
+    },
+    "Locul_de_munca": {
+      "type": "string"
+    },
+    "Inaltimea": {
+      "type": "integer"
+    },
+    "Greutatea": {
+      "type": "integer"
+    },
+    "Religie": {
+      "type": "string"
+    },
+    "Status_odihna_zi": {
+      "type": "integer"
+    },
+    "Status_odihna_noapte": {
+      "type": "integer"
+    },
+    "Apartenenta_alim": {
+      "type": "enumeration",
+      "enum": [
+        "Alege",
+        "Vegetarian",
+        "Lacto-vegetarian",
+        "Lacto-ovo-vegetarian",
+        "Vegan"
+      ]
+    },
+    "Alergii_alimentare": {
+      "type": "string"
+    },
+    "Intolerante_alimentare": {
+      "type": "string"
+    },
+    "Interventii_chirurgicale": {
+      "type": "string"
+    },
+    "Status_menstrual": {
+      "type": "enumeration",
+      "enum": [
+        "Alege",
+        "Premenstrual",
+        "Activ",
+        "Postmenstrual"
+      ]
+    },
+    "Status_nasteri": {
+      "type": "string"
+    },
+    "Diagnostic_boli_cronice": {
+      "type": "string"
+    },
+    "Diagnostic_boli_acute": {
+      "type": "string"
+    },
+    "Plangeri_dureri": {
+      "type": "string"
+    },
+    "Status_scaunelor": {
+      "type": "string"
+    },
+    "Varice": {
+      "type": "enumeration",
+      "enum": [
+        "Alege",
+        "Nu",
+        "Da"
+      ]
+    },
+    "Tensiunea_arteriala": {
+      "type": "string"
+    },
+    "Glicemie": {
+      "type": "string"
+    },
+    "Medicatie": {
+      "type": "string"
+    },
+    "Suplimente": {
+      "type": "string"
+    },
+    "Hobby_": {
+      "type": "string"
+    },
+    "Istoricul_greutatii_minime": {
+      "type": "string"
+    },
+    "Istoricul_greutatii_maxime": {
+      "type": "string"
+    },
+    "Nivel_fitness": {
+      "type": "string"
+    },
+    "Istoricul_stresului": {
+      "type": "string"
+    },
+    "Istoricul_dietelor": {
+      "type": "string"
+    },
+    "Perceptia_greutatii_normale": {
+      "type": "string"
+    },
+    "Perceptia_greutatii_supraponderale": {
+      "type": "string"
+    },
+    "Perceptia_greutatii_subponderale": {
+      "type": "string"
+    },
+    "Experienta_dietelor": {
+      "type": "string"
+    },
+    "Cheltuieli_alimentare": {
+      "type": "string"
+    },
+    "Cine_pregateste_mancarea": {
+      "type": "string"
+    },
+    "Regim_alimentar": {
+      "type": "string"
+    },
+    "Masa_cu_familia": {
+      "type": "enumeration",
+      "enum": [
+        "Alege",
+        "Da",
+        "Nu"
+      ]
+    },
+    "Micul_dejun": {
+      "type": "enumeration",
+      "enum": [
+        "Alege",
+        "Zilnic",
+        "Ocazional",
+        "Rar"
+      ]
+    },
+    "Pranz": {
+      "type": "enumeration",
+      "enum": [
+        "Alege",
+        "Zilnic",
+        "Ocazional",
+        "Rar"
+      ]
+    },
+    "Cina": {
+      "type": "enumeration",
+      "enum": [
+        "Alege",
+        "Zilnic",
+        "Ocazional",
+        "Rar"
+      ]
+    },
+    "Consumul_de_dulciuri": {
+      "type": "enumeration",
+      "enum": [
+        "Alege",
+        "Zilnic",
+        "Ocazional",
+        "Rar"
+      ]
+    },
+    "Consumul_de_bauturi_racoritoare": {
+      "type": "enumeration",
+      "enum": [
+        "Alege",
+        "Zilnic",
+        "Ocazional",
+        "Rar"
+      ]
+    },
+    "Consumul_de_alcool": {
+      "type": "enumeration",
+      "enum": [
+        "Alege",
+        "Zilnic",
+        "Ocazional",
+        "Rar"
+      ]
+    },
+    "Consumul_de_apa": {
+      "type": "string"
+    },
+    "Fumatul": {
+      "type": "enumeration",
+      "enum": [
+        "Alege",
+        "Zilnic",
+        "Ocazional",
+        "Rar"
+      ]
+    },
+    "Consumul_de_fructe": {
+      "type": "enumeration",
+      "enum": [
+        "Alege",
+        "Zilnic",
+        "Ocazional",
+        "Rar"
+      ]
+    },
+    "Alimente_preferate": {
+      "type": "string"
+    },
+    "Alimente_de_care_nu_va_puteti_desparti": {
+      "type": "string"
+    },
+    "Ultimele_investigatii_medicale": {
+      "type": "string"
+    },
+    "Recomandari_nutritionale": {
+      "type": "string"
+    },
+    "Program_nutritie_personalizat": {
+      "type": "string"
+    },
+    "Motivele_vizitei_nutritionist": {
+      "type": "string"
+    },
+    "Obiectivele_propuse": {
+      "type": "string"
+    },
+    "Simptome": {
+      "type": "customField",
+      "options": [
+        "Alege",
+        "lipsa de concentrare",
+        "leșin",
+        "iritabilitate",
+        "coșmaruri",
+        "insomnie",
+        "dureri de cap",
+        "migrene",
+        "pofte",
+        "uitare",
+        "abatere",
+        "epuizare",
+        "transpirație rece",
+        "oboseală",
+        "amețeli",
+        "transpirație",
+        "lipsă de coordonare",
+        "anxietate",
+        "dezechilibru",
+        "confuzie",
+        "alergii",
+        "palpitații",
+        "atacuri de panică",
+        "altele"
+      ],
+      "customField": "plugin::multi-select.multi-select"
+    }
+  }
+}

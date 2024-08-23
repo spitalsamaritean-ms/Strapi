@@ -1196,6 +1196,174 @@ export interface ApiNewsletterNewsletter extends Schema.CollectionType {
   };
 }
 
+export interface ApiNutritionNutrition extends Schema.CollectionType {
+  collectionName: 'nutritions';
+  info: {
+    singularName: 'nutrition';
+    pluralName: 'nutritions';
+    displayName: 'Nutrition';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Nume: Attribute.String;
+    Oras: Attribute.String;
+    Judet: Attribute.String;
+    Adresa: Attribute.String;
+    Telefon: Attribute.String;
+    Email: Attribute.String;
+    Varsta: Attribute.Integer;
+    Sexul: Attribute.Enumeration<['Alege', 'B\u0103rbat', 'Femeie']>;
+    Mediul_de_provenienta: Attribute.Enumeration<['Alege', 'Urban', 'Rural']>;
+    Studii_medii: Attribute.Enumeration<
+      ['Alege', 'Gimnaziu', 'Liceu', 'Postliceal', '\u0218coala Tehnic\u0103']
+    >;
+    Studii_superioare: Attribute.Enumeration<
+      ['Alege', 'Facultatea', 'Masterat', 'Doctorat']
+    >;
+    Status_social: Attribute.Enumeration<
+      [
+        'Alege',
+        'Angajat (stat)',
+        'Angajat (privat)',
+        'Permanent',
+        'Ocazional',
+        '\u0218omer',
+        'Elev',
+        'Student',
+        'Masterand'
+      ]
+    >;
+    Status_marital: Attribute.Enumeration<
+      [
+        'Alege',
+        'C\u0103s\u0103torit/\u0103',
+        'Nec\u0103s\u0103torit/\u0103',
+        'Divor\u021Bat/\u0103',
+        'V\u0103duv/\u0103',
+        'Consensual'
+      ]
+    >;
+    Profesia: Attribute.String;
+    Locul_de_munca: Attribute.String;
+    Inaltimea: Attribute.Integer;
+    Greutatea: Attribute.Integer;
+    Religie: Attribute.String;
+    Status_odihna_zi: Attribute.Integer;
+    Status_odihna_noapte: Attribute.Integer;
+    Apartenenta_alim: Attribute.Enumeration<
+      [
+        'Alege',
+        'Vegetarian',
+        'Lacto-vegetarian',
+        'Lacto-ovo-vegetarian',
+        'Vegan'
+      ]
+    >;
+    Alergii_alimentare: Attribute.String;
+    Intolerante_alimentare: Attribute.String;
+    Interventii_chirurgicale: Attribute.String;
+    Status_menstrual: Attribute.Enumeration<
+      ['Alege', 'Premenstrual', 'Activ', 'Postmenstrual']
+    >;
+    Status_nasteri: Attribute.String;
+    Diagnostic_boli_cronice: Attribute.String;
+    Diagnostic_boli_acute: Attribute.String;
+    Plangeri_dureri: Attribute.String;
+    Status_scaunelor: Attribute.String;
+    Varice: Attribute.Enumeration<['Alege', 'Nu', 'Da']>;
+    Tensiunea_arteriala: Attribute.String;
+    Glicemie: Attribute.String;
+    Medicatie: Attribute.String;
+    Suplimente: Attribute.String;
+    Hobby_: Attribute.String;
+    Istoricul_greutatii_minime: Attribute.String;
+    Istoricul_greutatii_maxime: Attribute.String;
+    Nivel_fitness: Attribute.String;
+    Istoricul_stresului: Attribute.String;
+    Istoricul_dietelor: Attribute.String;
+    Perceptia_greutatii_normale: Attribute.String;
+    Perceptia_greutatii_supraponderale: Attribute.String;
+    Perceptia_greutatii_subponderale: Attribute.String;
+    Experienta_dietelor: Attribute.String;
+    Cheltuieli_alimentare: Attribute.String;
+    Cine_pregateste_mancarea: Attribute.String;
+    Regim_alimentar: Attribute.String;
+    Masa_cu_familia: Attribute.Enumeration<['Alege', 'Da', 'Nu']>;
+    Micul_dejun: Attribute.Enumeration<['Alege', 'Zilnic', 'Ocazional', 'Rar']>;
+    Pranz: Attribute.Enumeration<['Alege', 'Zilnic', 'Ocazional', 'Rar']>;
+    Cina: Attribute.Enumeration<['Alege', 'Zilnic', 'Ocazional', 'Rar']>;
+    Consumul_de_dulciuri: Attribute.Enumeration<
+      ['Alege', 'Zilnic', 'Ocazional', 'Rar']
+    >;
+    Consumul_de_bauturi_racoritoare: Attribute.Enumeration<
+      ['Alege', 'Zilnic', 'Ocazional', 'Rar']
+    >;
+    Consumul_de_alcool: Attribute.Enumeration<
+      ['Alege', 'Zilnic', 'Ocazional', 'Rar']
+    >;
+    Consumul_de_apa: Attribute.String;
+    Fumatul: Attribute.Enumeration<['Alege', 'Zilnic', 'Ocazional', 'Rar']>;
+    Consumul_de_fructe: Attribute.Enumeration<
+      ['Alege', 'Zilnic', 'Ocazional', 'Rar']
+    >;
+    Alimente_preferate: Attribute.String;
+    Alimente_de_care_nu_va_puteti_desparti: Attribute.String;
+    Ultimele_investigatii_medicale: Attribute.String;
+    Recomandari_nutritionale: Attribute.String;
+    Program_nutritie_personalizat: Attribute.String;
+    Motivele_vizitei_nutritionist: Attribute.String;
+    Obiectivele_propuse: Attribute.String;
+    Simptome: Attribute.JSON &
+      Attribute.CustomField<
+        'plugin::multi-select.multi-select',
+        [
+          'Alege',
+          'lipsa de concentrare',
+          'le\u0219in',
+          'iritabilitate',
+          'co\u0219maruri',
+          'insomnie',
+          'dureri de cap',
+          'migrene',
+          'pofte',
+          'uitare',
+          'abatere',
+          'epuizare',
+          'transpira\u021Bie rece',
+          'oboseal\u0103',
+          'ame\u021Beli',
+          'transpira\u021Bie',
+          'lips\u0103 de coordonare',
+          'anxietate',
+          'dezechilibru',
+          'confuzie',
+          'alergii',
+          'palpita\u021Bii',
+          'atacuri de panic\u0103',
+          'altele'
+        ]
+      >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::nutrition.nutrition',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::nutrition.nutrition',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiOrderOrder extends Schema.CollectionType {
   collectionName: 'orders';
   info: {
@@ -1584,6 +1752,7 @@ declare module '@strapi/types' {
       'api::information.information': ApiInformationInformation;
       'api::menu.menu': ApiMenuMenu;
       'api::newsletter.newsletter': ApiNewsletterNewsletter;
+      'api::nutrition.nutrition': ApiNutritionNutrition;
       'api::order.order': ApiOrderOrder;
       'api::package.package': ApiPackagePackage;
       'api::partner.partner': ApiPartnerPartner;
