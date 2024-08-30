@@ -54,7 +54,7 @@ module.exports = {
         },
         {
           templateReferenceId: 10,
-          subject: `Köszönjük a rendelését`,
+          subject: `Vă mulțumim pentru comanda dvs.`,
         },
         {
           USER: {
@@ -78,29 +78,29 @@ module.exports = {
       await strapi.plugins["email"].services.email.send({
         to: "attila2000.03.05@gmail.com",
         from: "no-reply@spitalulsamaritean.ro",
-        subject: "Kapcsolatfelvételi űrlap",
+        subject: "Comandă Nouă",
         html: `
-          Név: ${name}<br>
-          Vezetéknév: ${lastname}<br>
+          Nume: ${name}<br>
+          Prenume: ${lastname}<br>
           Email: ${email}<br>
           Telefon: ${phone}<br>
-          Üzenet: ${message}<br>
+          Mesaj: ${message}<br>
           <br>
-          Rendelési adatok:<br>
+          Detalii comandă:<br>
           ${products
             .map(
               (product) =>
-                `- ${product.name} (Mennyiség: ${product.quantity}, Ár: ${product.price})`
+                `- ${product.name} (Cantitate: ${product.quantity}, Preț: ${product.price})`
             )
             .join("<br>")}
           <br>
-          Összesen: ${total}<br>
+          Total: ${total}<br>
           <br>
-          Szállítási adatok:<br>
-          Megye: ${deliveryCounty}<br>
-          Település: ${deliveryLocalities}<br>
-          Cím: ${deliveryAddress ? deliveryAddress : "N/A"}<br>
-          Irányítószám: ${deliveryZipcode ? deliveryZipcode : "N/A"}<br>
+          Detalii de livrare:<br>
+          Județ: ${deliveryCounty}<br>
+          Localitate: ${deliveryLocalities}<br>
+          Adresă: ${deliveryAddress ? deliveryAddress : "N/A"}<br>
+          Cod poștal: ${deliveryZipcode ? deliveryZipcode : "N/A"}<br>
         `,
       });
     } catch (err) {
