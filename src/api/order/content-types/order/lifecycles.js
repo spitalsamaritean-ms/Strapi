@@ -76,7 +76,7 @@ module.exports = {
 
       // Send notification email to admin
       await strapi.plugins["email"].services.email.send({
-        to: "attila2000.03.05@gmail.com",
+        to: "info@spitalulsamaritean.ro",
         from: "no-reply@spitalulsamaritean.ro",
         subject: "Comandă Nouă",
         html: `
