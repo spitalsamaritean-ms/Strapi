@@ -1179,6 +1179,7 @@ export interface ApiNewsletterNewsletter extends Schema.CollectionType {
   };
   attributes: {
     email: Attribute.Email & Attribute.Unique;
+    Name: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
