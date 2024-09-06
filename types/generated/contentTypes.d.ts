@@ -1048,6 +1048,44 @@ export interface ApiFeebackFeeback extends Schema.CollectionType {
   };
 }
 
+export interface ApiGalleryCategoryGalleryCategory
+  extends Schema.CollectionType {
+  collectionName: 'gallery_categories';
+  info: {
+    singularName: 'gallery-category';
+    pluralName: 'gallery-categories';
+    displayName: 'GalleryCategory';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    name: Attribute.String & Attribute.Required;
+    displayImage1: Attribute.Media;
+    displayImage2: Attribute.Media;
+    displayImage3: Attribute.Media;
+    displayImage4: Attribute.Media;
+    moreImages: Attribute.Media;
+    priority: Attribute.Integer & Attribute.DefaultTo<0>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::gallery-category.gallery-category',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::gallery-category.gallery-category',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiInfoPatientInfoPatient extends Schema.CollectionType {
   collectionName: 'info_patients';
   info: {
@@ -1749,6 +1787,7 @@ declare module '@strapi/types' {
       'api::contact-package.contact-package': ApiContactPackageContactPackage;
       'api::custom-page.custom-page': ApiCustomPageCustomPage;
       'api::feeback.feeback': ApiFeebackFeeback;
+      'api::gallery-category.gallery-category': ApiGalleryCategoryGalleryCategory;
       'api::info-patient.info-patient': ApiInfoPatientInfoPatient;
       'api::information.information': ApiInformationInformation;
       'api::menu.menu': ApiMenuMenu;
