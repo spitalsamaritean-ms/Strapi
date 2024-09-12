@@ -1722,7 +1722,7 @@ export interface ApiServiceService extends Schema.CollectionType {
     description: '';
   };
   options: {
-    draftAndPublish: false;
+    draftAndPublish: true;
   };
   attributes: {
     title: Attribute.String & Attribute.Required;
@@ -1753,6 +1753,7 @@ export interface ApiServiceService extends Schema.CollectionType {
     priority: Attribute.Integer;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
       'api::service.service',
       'oneToOne',
