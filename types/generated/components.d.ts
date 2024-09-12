@@ -14,6 +14,19 @@ export interface CommonButtons extends Schema.Component {
   };
 }
 
+export interface CommonFacility extends Schema.Component {
+  collectionName: 'components_common_facilities';
+  info: {
+    displayName: 'Facility';
+    icon: 'handHeart';
+  };
+  attributes: {
+    title: Attribute.String & Attribute.Required;
+    content: Attribute.Text;
+    icon: Attribute.Media;
+  };
+}
+
 export interface CommonFaq extends Schema.Component {
   collectionName: 'components_common_faqs';
   info: {
@@ -367,6 +380,7 @@ declare module '@strapi/types' {
   export module Shared {
     export interface Components {
       'common.buttons': CommonButtons;
+      'common.facility': CommonFacility;
       'common.faq': CommonFaq;
       'common.header-and-text': CommonHeaderAndText;
       'common.image-and-text': CommonImageAndText;

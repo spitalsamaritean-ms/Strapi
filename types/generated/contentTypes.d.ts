@@ -817,6 +817,41 @@ export interface PluginEmailDesignerEmailTemplate
   };
 }
 
+export interface ApiAccomodationAccomodation extends Schema.SingleType {
+  collectionName: 'accomodations';
+  info: {
+    singularName: 'accomodation';
+    pluralName: 'accomodations';
+    displayName: 'Accomodation';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    subtitle: Attribute.String;
+    title: Attribute.String & Attribute.Required;
+    description: Attribute.RichText;
+    facilities: Attribute.Component<'common.facility', true>;
+    mainImages: Attribute.Media & Attribute.Required;
+    otherImages: Attribute.Media;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::accomodation.accomodation',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::accomodation.accomodation',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiAppointmentAppointment extends Schema.CollectionType {
   collectionName: 'appointments';
   info: {
@@ -1079,6 +1114,37 @@ export interface ApiGalleryCategoryGalleryCategory
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'api::gallery-category.gallery-category',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiGalleryVideoGalleryVideo extends Schema.CollectionType {
+  collectionName: 'gallery_videos';
+  info: {
+    singularName: 'gallery-video';
+    pluralName: 'gallery-videos';
+    displayName: 'GalleryVideo';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    link: Attribute.String & Attribute.Required;
+    priority: Attribute.Integer & Attribute.Required & Attribute.DefaultTo<0>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::gallery-video.gallery-video',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::gallery-video.gallery-video',
       'oneToOne',
       'admin::user'
     > &
@@ -1749,9 +1815,11 @@ export interface ApiTeamTeam extends Schema.CollectionType {
   attributes: {
     name: Attribute.String & Attribute.Required;
     position: Attribute.String & Attribute.Required;
-    description: Attribute.Text & Attribute.Required;
+    lead: Attribute.Text & Attribute.Required;
     image: Attribute.Media & Attribute.Required;
     priority: Attribute.Integer;
+    description: Attribute.RichText;
+    slug: Attribute.UID<'api::team.team', 'name'> & Attribute.Required;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1781,6 +1849,7 @@ declare module '@strapi/types' {
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'plugin::i18n.locale': PluginI18NLocale;
       'plugin::email-designer.email-template': PluginEmailDesignerEmailTemplate;
+      'api::accomodation.accomodation': ApiAccomodationAccomodation;
       'api::appointment.appointment': ApiAppointmentAppointment;
       'api::blog.blog': ApiBlogBlog;
       'api::contact.contact': ApiContactContact;
@@ -1788,6 +1857,7 @@ declare module '@strapi/types' {
       'api::custom-page.custom-page': ApiCustomPageCustomPage;
       'api::feeback.feeback': ApiFeebackFeeback;
       'api::gallery-category.gallery-category': ApiGalleryCategoryGalleryCategory;
+      'api::gallery-video.gallery-video': ApiGalleryVideoGalleryVideo;
       'api::info-patient.info-patient': ApiInfoPatientInfoPatient;
       'api::information.information': ApiInformationInformation;
       'api::menu.menu': ApiMenuMenu;

@@ -20,7 +20,7 @@
       "type": "string",
       "required": true
     },
-    "description": {
+    "lead": {
       "type": "text",
       "required": true
     },
@@ -34,6 +34,14 @@
     },
     "priority": {
       "type": "integer"
+    },
+    "description": {
+      "type": "richtext"
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "name",
+      "required": true
     }
   }
 }
