@@ -164,6 +164,23 @@ export interface MenuMenuLink extends Schema.Component {
   };
 }
 
+export interface MenuNestedDropdown extends Schema.Component {
+  collectionName: 'components_menu_nested_dropdowns';
+  info: {
+    displayName: 'NestedDropdown';
+    icon: 'arrowDown';
+  };
+  attributes: {
+    title: Attribute.String & Attribute.Required;
+    link: Attribute.String;
+    dropdowns: Attribute.Relation<
+      'menu.nested-dropdown',
+      'oneToMany',
+      'api::dropdown-menu-link.dropdown-menu-link'
+    >;
+  };
+}
+
 export interface PackageFeature extends Schema.Component {
   collectionName: 'components_package_features';
   info: {
@@ -392,6 +409,7 @@ declare module '@strapi/types' {
       'menu.button': MenuButton;
       'menu.dropdown': MenuDropdown;
       'menu.menu-link': MenuMenuLink;
+      'menu.nested-dropdown': MenuNestedDropdown;
       'package.feature': PackageFeature;
       'price.price-list': PricePriceList;
       'services.about': ServicesAbout;

@@ -4,7 +4,8 @@
   "info": {
     "singularName": "menu",
     "pluralName": "menus",
-    "displayName": "Menu"
+    "displayName": "Menu",
+    "description": ""
   },
   "options": {
     "draftAndPublish": false
@@ -16,7 +17,8 @@
       "components": [
         "menu.button",
         "menu.dropdown",
-        "menu.menu-link"
+        "menu.menu-link",
+        "menu.nested-dropdown"
       ]
     }
   }

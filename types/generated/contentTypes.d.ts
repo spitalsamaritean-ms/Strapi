@@ -823,6 +823,7 @@ export interface ApiAccomodationAccomodation extends Schema.SingleType {
     singularName: 'accomodation';
     pluralName: 'accomodations';
     displayName: 'Accomodation';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -834,6 +835,13 @@ export interface ApiAccomodationAccomodation extends Schema.SingleType {
     facilities: Attribute.Component<'common.facility', true>;
     mainImages: Attribute.Media & Attribute.Required;
     otherImages: Attribute.Media;
+    subtitle2: Attribute.String;
+    title2: Attribute.String;
+    description2: Attribute.RichText;
+    facilities2: Attribute.Component<'common.facility', true>;
+    mainImages2: Attribute.Media;
+    facilities_title: Attribute.String;
+    facilities_title2: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1049,6 +1057,45 @@ export interface ApiCustomPageCustomPage extends Schema.CollectionType {
   };
 }
 
+export interface ApiDropdownMenuLinkDropdownMenuLink
+  extends Schema.CollectionType {
+  collectionName: 'dropdown_menu_links';
+  info: {
+    singularName: 'dropdown-menu-link';
+    pluralName: 'dropdown-menu-links';
+    displayName: 'DropdownMenuLink';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String & Attribute.Required;
+    link: Attribute.String;
+    menu_links: Attribute.Relation<
+      'api::dropdown-menu-link.dropdown-menu-link',
+      'oneToMany',
+      'api::menu-link.menu-link'
+    >;
+    priority: Attribute.Integer & Attribute.DefaultTo<0>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::dropdown-menu-link.dropdown-menu-link',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::dropdown-menu-link.dropdown-menu-link',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiFeebackFeeback extends Schema.CollectionType {
   collectionName: 'feebacks';
   info: {
@@ -1253,19 +1300,53 @@ export interface ApiMenuMenu extends Schema.SingleType {
     singularName: 'menu';
     pluralName: 'menus';
     displayName: 'Menu';
+    description: '';
   };
   options: {
     draftAndPublish: false;
   };
   attributes: {
     menu: Attribute.DynamicZone<
-      ['menu.button', 'menu.dropdown', 'menu.menu-link']
+      ['menu.button', 'menu.dropdown', 'menu.menu-link', 'menu.nested-dropdown']
     >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<'api::menu.menu', 'oneToOne', 'admin::user'> &
       Attribute.Private;
     updatedBy: Attribute.Relation<'api::menu.menu', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+  };
+}
+
+export interface ApiMenuLinkMenuLink extends Schema.CollectionType {
+  collectionName: 'menu_links';
+  info: {
+    singularName: 'menu-link';
+    pluralName: 'menu-links';
+    displayName: 'MenuLink';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String & Attribute.Required;
+    link: Attribute.String;
+    priority: Attribute.Integer;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::menu-link.menu-link',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::menu-link.menu-link',
+      'oneToOne',
+      'admin::user'
+    > &
       Attribute.Private;
   };
 }
@@ -1821,12 +1902,55 @@ export interface ApiTeamTeam extends Schema.CollectionType {
     priority: Attribute.Integer;
     description: Attribute.RichText;
     slug: Attribute.UID<'api::team.team', 'name'> & Attribute.Required;
+    team_member_categories: Attribute.Relation<
+      'api::team.team',
+      'manyToMany',
+      'api::team-member-category.team-member-category'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<'api::team.team', 'oneToOne', 'admin::user'> &
       Attribute.Private;
     updatedBy: Attribute.Relation<'api::team.team', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+  };
+}
+
+export interface ApiTeamMemberCategoryTeamMemberCategory
+  extends Schema.CollectionType {
+  collectionName: 'team_member_categories';
+  info: {
+    singularName: 'team-member-category';
+    pluralName: 'team-member-categories';
+    displayName: 'TeamMemberCategory';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    name: Attribute.String & Attribute.Required;
+    priority: Attribute.Integer;
+    teams: Attribute.Relation<
+      'api::team-member-category.team-member-category',
+      'manyToMany',
+      'api::team.team'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::team-member-category.team-member-category',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::team-member-category.team-member-category',
+      'oneToOne',
+      'admin::user'
+    > &
       Attribute.Private;
   };
 }
@@ -1856,12 +1980,14 @@ declare module '@strapi/types' {
       'api::contact.contact': ApiContactContact;
       'api::contact-package.contact-package': ApiContactPackageContactPackage;
       'api::custom-page.custom-page': ApiCustomPageCustomPage;
+      'api::dropdown-menu-link.dropdown-menu-link': ApiDropdownMenuLinkDropdownMenuLink;
       'api::feeback.feeback': ApiFeebackFeeback;
       'api::gallery-category.gallery-category': ApiGalleryCategoryGalleryCategory;
       'api::gallery-video.gallery-video': ApiGalleryVideoGalleryVideo;
       'api::info-patient.info-patient': ApiInfoPatientInfoPatient;
       'api::information.information': ApiInformationInformation;
       'api::menu.menu': ApiMenuMenu;
+      'api::menu-link.menu-link': ApiMenuLinkMenuLink;
       'api::newsletter.newsletter': ApiNewsletterNewsletter;
       'api::nutrition.nutrition': ApiNutritionNutrition;
       'api::order.order': ApiOrderOrder;
@@ -1873,6 +1999,7 @@ declare module '@strapi/types' {
       'api::service.service': ApiServiceService;
       'api::shop-value.shop-value': ApiShopValueShopValue;
       'api::team.team': ApiTeamTeam;
+      'api::team-member-category.team-member-category': ApiTeamMemberCategoryTeamMemberCategory;
     }
   }
 }

@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_menu_nested_dropdowns",
+  "info": {
+    "displayName": "NestedDropdown",
+    "icon": "arrowDown"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "link": {
+      "type": "string"
+    },
+    "dropdowns": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::dropdown-menu-link.dropdown-menu-link"
+    }
+  }
+}

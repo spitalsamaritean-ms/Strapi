@@ -1,0 +1,32 @@
+{
+  "kind": "collectionType",
+  "collectionName": "dropdown_menu_links",
+  "info": {
+    "singularName": "dropdown-menu-link",
+    "pluralName": "dropdown-menu-links",
+    "displayName": "DropdownMenuLink",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "link": {
+      "type": "string"
+    },
+    "menu_links": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::menu-link.menu-link"
+    },
+    "priority": {
+      "type": "integer",
+      "default": 0
+    }
+  }
+}

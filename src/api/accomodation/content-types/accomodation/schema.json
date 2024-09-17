@@ -4,7 +4,8 @@
   "info": {
     "singularName": "accomodation",
     "pluralName": "accomodations",
-    "displayName": "Accomodation"
+    "displayName": "Accomodation",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -28,19 +29,48 @@
       "component": "common.facility"
     },
     "mainImages": {
-      "allowedTypes": [
-        "images"
-      ],
       "type": "media",
       "multiple": true,
-      "required": true
-    },
-    "otherImages": {
+      "required": true,
       "allowedTypes": [
         "images"
-      ],
+      ]
+    },
+    "otherImages": {
       "type": "media",
-      "multiple": true
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "subtitle2": {
+      "type": "string"
+    },
+    "title2": {
+      "type": "string"
+    },
+    "description2": {
+      "type": "richtext"
+    },
+    "facilities2": {
+      "type": "component",
+      "repeatable": true,
+      "component": "common.facility"
+    },
+    "mainImages2": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "facilities_title": {
+      "type": "string"
+    },
+    "facilities_title2": {
+      "type": "string"
     }
   }
 }
