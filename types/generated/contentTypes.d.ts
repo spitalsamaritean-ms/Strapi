@@ -1832,6 +1832,7 @@ export interface ApiServiceService extends Schema.CollectionType {
     seo: Attribute.Component<'shared.seo'>;
     otherPage: Attribute.Boolean & Attribute.DefaultTo<false>;
     priority: Attribute.Integer;
+    showInFooter: Attribute.Boolean & Attribute.DefaultTo<false>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
