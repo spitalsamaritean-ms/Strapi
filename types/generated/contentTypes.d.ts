@@ -1899,7 +1899,7 @@ export interface ApiTeamTeam extends Schema.CollectionType {
     name: Attribute.String & Attribute.Required;
     position: Attribute.String & Attribute.Required;
     lead: Attribute.Text & Attribute.Required;
-    image: Attribute.Media & Attribute.Required;
+    image: Attribute.Media;
     priority: Attribute.Integer;
     description: Attribute.RichText;
     slug: Attribute.UID<'api::team.team', 'name'> & Attribute.Required;
