@@ -1,0 +1,22 @@
+{
+  "kind": "singleType",
+  "collectionName": "media_logos",
+  "info": {
+    "singularName": "media-logo",
+    "pluralName": "media-logos",
+    "displayName": "MediaLogo"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "logos": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": true
+    }
+  }
+}

@@ -1329,6 +1329,36 @@ export interface ApiMediaAppearanceMediaAppearance
   };
 }
 
+export interface ApiMediaLogoMediaLogo extends Schema.SingleType {
+  collectionName: 'media_logos';
+  info: {
+    singularName: 'media-logo';
+    pluralName: 'media-logos';
+    displayName: 'MediaLogo';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    logos: Attribute.Media;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::media-logo.media-logo',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::media-logo.media-logo',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiMenuMenu extends Schema.SingleType {
   collectionName: 'menus';
   info: {
@@ -2023,6 +2053,7 @@ declare module '@strapi/types' {
       'api::info-patient.info-patient': ApiInfoPatientInfoPatient;
       'api::information.information': ApiInformationInformation;
       'api::media-appearance.media-appearance': ApiMediaAppearanceMediaAppearance;
+      'api::media-logo.media-logo': ApiMediaLogoMediaLogo;
       'api::menu.menu': ApiMenuMenu;
       'api::menu-link.menu-link': ApiMenuLinkMenuLink;
       'api::newsletter.newsletter': ApiNewsletterNewsletter;
