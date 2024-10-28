@@ -1,0 +1,37 @@
+{
+  "kind": "collectionType",
+  "collectionName": "media_appearances",
+  "info": {
+    "singularName": "media-appearance",
+    "pluralName": "media-appearances",
+    "displayName": "MediaAppearance"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "lead": {
+      "type": "text"
+    },
+    "image": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "link": {
+      "type": "string"
+    },
+    "priority": {
+      "type": "integer",
+      "required": true,
+      "default": 1
+    }
+  }
+}

@@ -1294,6 +1294,41 @@ export interface ApiInformationInformation extends Schema.CollectionType {
   };
 }
 
+export interface ApiMediaAppearanceMediaAppearance
+  extends Schema.CollectionType {
+  collectionName: 'media_appearances';
+  info: {
+    singularName: 'media-appearance';
+    pluralName: 'media-appearances';
+    displayName: 'MediaAppearance';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String & Attribute.Required;
+    lead: Attribute.Text;
+    image: Attribute.Media;
+    link: Attribute.String;
+    priority: Attribute.Integer & Attribute.Required & Attribute.DefaultTo<1>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::media-appearance.media-appearance',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::media-appearance.media-appearance',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiMenuMenu extends Schema.SingleType {
   collectionName: 'menus';
   info: {
@@ -1987,6 +2022,7 @@ declare module '@strapi/types' {
       'api::gallery-video.gallery-video': ApiGalleryVideoGalleryVideo;
       'api::info-patient.info-patient': ApiInfoPatientInfoPatient;
       'api::information.information': ApiInformationInformation;
+      'api::media-appearance.media-appearance': ApiMediaAppearanceMediaAppearance;
       'api::menu.menu': ApiMenuMenu;
       'api::menu-link.menu-link': ApiMenuLinkMenuLink;
       'api::newsletter.newsletter': ApiNewsletterNewsletter;
