@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_services_call_to_actions",
+  "info": {
+    "displayName": "CallToAction",
+    "icon": "play"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "content": {
+      "type": "richtext"
+    },
+    "ctaBtnLink": {
+      "type": "string"
+    },
+    "ctaBtnText": {
+      "type": "string"
+    }
+  }
+}

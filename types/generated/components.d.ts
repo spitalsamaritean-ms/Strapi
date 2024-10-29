@@ -234,6 +234,20 @@ export interface ServicesAbout2 extends Schema.Component {
   };
 }
 
+export interface ServicesCallToAction extends Schema.Component {
+  collectionName: 'components_services_call_to_actions';
+  info: {
+    displayName: 'CallToAction';
+    icon: 'play';
+  };
+  attributes: {
+    title: Attribute.String & Attribute.Required;
+    content: Attribute.RichText;
+    ctaBtnLink: Attribute.String;
+    ctaBtnText: Attribute.String;
+  };
+}
+
 export interface ServicesFaq2 extends Schema.Component {
   collectionName: 'components_services_faq_2s';
   info: {
@@ -414,6 +428,7 @@ declare module '@strapi/types' {
       'price.price-list': PricePriceList;
       'services.about': ServicesAbout;
       'services.about2': ServicesAbout2;
+      'services.call-to-action': ServicesCallToAction;
       'services.faq-2': ServicesFaq2;
       'services.faq': ServicesFaq;
       'services.hero': ServicesHero;

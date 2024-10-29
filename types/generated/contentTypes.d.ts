@@ -1891,7 +1891,8 @@ export interface ApiServiceService extends Schema.CollectionType {
         'common.image-block3',
         'common.image-and-text',
         'common.header-and-text',
-        'common.quotes'
+        'common.quotes',
+        'services.call-to-action'
       ]
     >;
     seo: Attribute.Component<'shared.seo'>;
