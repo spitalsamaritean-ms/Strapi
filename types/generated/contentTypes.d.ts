@@ -904,6 +904,39 @@ export interface ApiAppointmentAppointment extends Schema.CollectionType {
   };
 }
 
+export interface ApiBlackFridayNewsletterBlackFridayNewsletter
+  extends Schema.CollectionType {
+  collectionName: 'black_friday_newsletters';
+  info: {
+    singularName: 'black-friday-newsletter';
+    pluralName: 'black-friday-newsletters';
+    displayName: 'BlackFridayNewsletter';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    email: Attribute.Email & Attribute.Unique;
+    Name: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::black-friday-newsletter.black-friday-newsletter',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::black-friday-newsletter.black-friday-newsletter',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiBlogBlog extends Schema.CollectionType {
   collectionName: 'blogs';
   info: {
@@ -1950,6 +1983,38 @@ export interface ApiShopValueShopValue extends Schema.CollectionType {
   };
 }
 
+export interface ApiSpecialitySpeciality extends Schema.CollectionType {
+  collectionName: 'specialities';
+  info: {
+    singularName: 'speciality';
+    pluralName: 'specialities';
+    displayName: 'Speciality';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String & Attribute.Required;
+    description: Attribute.RichText;
+    priority: Attribute.Integer & Attribute.Required & Attribute.DefaultTo<1>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::speciality.speciality',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::speciality.speciality',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiTeamTeam extends Schema.CollectionType {
   collectionName: 'teams';
   info: {
@@ -2043,6 +2108,7 @@ declare module '@strapi/types' {
       'plugin::email-designer.email-template': PluginEmailDesignerEmailTemplate;
       'api::accomodation.accomodation': ApiAccomodationAccomodation;
       'api::appointment.appointment': ApiAppointmentAppointment;
+      'api::black-friday-newsletter.black-friday-newsletter': ApiBlackFridayNewsletterBlackFridayNewsletter;
       'api::blog.blog': ApiBlogBlog;
       'api::contact.contact': ApiContactContact;
       'api::contact-package.contact-package': ApiContactPackageContactPackage;
@@ -2067,6 +2133,7 @@ declare module '@strapi/types' {
       'api::product-category.product-category': ApiProductCategoryProductCategory;
       'api::service.service': ApiServiceService;
       'api::shop-value.shop-value': ApiShopValueShopValue;
+      'api::speciality.speciality': ApiSpecialitySpeciality;
       'api::team.team': ApiTeamTeam;
       'api::team-member-category.team-member-category': ApiTeamMemberCategoryTeamMemberCategory;
     }

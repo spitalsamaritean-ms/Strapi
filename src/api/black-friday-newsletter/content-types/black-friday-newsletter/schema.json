@@ -1,0 +1,24 @@
+{
+  "kind": "collectionType",
+  "collectionName": "black_friday_newsletters",
+  "info": {
+    "singularName": "black-friday-newsletter",
+    "pluralName": "black-friday-newsletters",
+    "displayName": "BlackFridayNewsletter",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "email": {
+      "type": "email",
+      "required": false,
+      "unique": true
+    },
+    "Name": {
+      "type": "string"
+    }
+  }
+}
