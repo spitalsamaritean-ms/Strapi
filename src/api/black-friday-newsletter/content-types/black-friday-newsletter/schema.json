@@ -16,9 +16,6 @@
       "type": "email",
       "required": false,
       "unique": true
-    },
-    "Name": {
-      "type": "string"
     }
   }
 }

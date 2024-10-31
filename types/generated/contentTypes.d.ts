@@ -918,7 +918,6 @@ export interface ApiBlackFridayNewsletterBlackFridayNewsletter
   };
   attributes: {
     email: Attribute.Email & Attribute.Unique;
-    Name: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
