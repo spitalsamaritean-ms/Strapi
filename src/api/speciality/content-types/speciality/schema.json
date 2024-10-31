@@ -4,7 +4,8 @@
   "info": {
     "singularName": "speciality",
     "pluralName": "specialities",
-    "displayName": "Speciality"
+    "displayName": "Speciality",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -22,6 +23,11 @@
       "type": "integer",
       "required": true,
       "default": 1
+    },
+    "buttons": {
+      "type": "component",
+      "repeatable": true,
+      "component": "common.buttons"
     }
   }
 }

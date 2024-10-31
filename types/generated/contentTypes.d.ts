@@ -1988,6 +1988,7 @@ export interface ApiSpecialitySpeciality extends Schema.CollectionType {
     singularName: 'speciality';
     pluralName: 'specialities';
     displayName: 'Speciality';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -1996,6 +1997,7 @@ export interface ApiSpecialitySpeciality extends Schema.CollectionType {
     title: Attribute.String & Attribute.Required;
     description: Attribute.RichText;
     priority: Attribute.Integer & Attribute.Required & Attribute.DefaultTo<1>;
+    buttons: Attribute.Component<'common.buttons', true>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
