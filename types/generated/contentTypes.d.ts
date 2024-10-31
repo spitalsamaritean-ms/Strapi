@@ -1708,7 +1708,7 @@ export interface ApiPackagePackage extends Schema.CollectionType {
   };
   attributes: {
     title: Attribute.String & Attribute.Required;
-    description: Attribute.Text & Attribute.Required;
+    description: Attribute.Text;
     price: Attribute.Decimal & Attribute.Required;
     priority: Attribute.Integer;
     features: Attribute.Component<'package.feature', true>;
