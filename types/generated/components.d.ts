@@ -103,6 +103,20 @@ export interface CommonListItem extends Schema.Component {
   };
 }
 
+export interface CommonPromotionalOfferDescription extends Schema.Component {
+  collectionName: 'components_common_promotional_offer_descriptions';
+  info: {
+    displayName: 'PromotionalOfferDescription';
+    icon: 'pencil';
+  };
+  attributes: {
+    content: Attribute.String & Attribute.Required;
+    type: Attribute.Enumeration<['normal', 'bordered']> &
+      Attribute.Required &
+      Attribute.DefaultTo<'normal'>;
+  };
+}
+
 export interface CommonQuotes extends Schema.Component {
   collectionName: 'components_common_quotes';
   info: {
@@ -418,6 +432,7 @@ declare module '@strapi/types' {
       'common.image-block3': CommonImageBlock3;
       'common.item': CommonItem;
       'common.list-item': CommonListItem;
+      'common.promotional-offer-description': CommonPromotionalOfferDescription;
       'common.quotes': CommonQuotes;
       'common.text': CommonText;
       'menu.button': MenuButton;

@@ -1891,6 +1891,80 @@ export interface ApiProductCategoryProductCategory
   };
 }
 
+export interface ApiPromotionalOfferPromotionalOffer
+  extends Schema.CollectionType {
+  collectionName: 'promotional_offers';
+  info: {
+    singularName: 'promotional-offer';
+    pluralName: 'promotional-offers';
+    displayName: 'PromotionalOffer';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    content: Attribute.Component<'common.promotional-offer-description', true>;
+    old_price: Attribute.Decimal;
+    new_price: Attribute.Decimal & Attribute.Required;
+    priority: Attribute.Integer;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::promotional-offer.promotional-offer',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::promotional-offer.promotional-offer',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiPromotionalOfferCategoryPromotionalOfferCategory
+  extends Schema.CollectionType {
+  collectionName: 'promotional_offer_categories';
+  info: {
+    singularName: 'promotional-offer-category';
+    pluralName: 'promotional-offer-categories';
+    displayName: 'PromotionalOfferCategory';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    name: Attribute.String & Attribute.Required;
+    old_price: Attribute.Decimal;
+    new_price: Attribute.Decimal;
+    priority: Attribute.Integer;
+    promotional_offers: Attribute.Relation<
+      'api::promotional-offer-category.promotional-offer-category',
+      'oneToMany',
+      'api::promotional-offer.promotional-offer'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::promotional-offer-category.promotional-offer-category',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::promotional-offer-category.promotional-offer-category',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiServiceService extends Schema.CollectionType {
   collectionName: 'services';
   info: {
@@ -2132,6 +2206,8 @@ declare module '@strapi/types' {
       'api::price.price': ApiPricePrice;
       'api::product.product': ApiProductProduct;
       'api::product-category.product-category': ApiProductCategoryProductCategory;
+      'api::promotional-offer.promotional-offer': ApiPromotionalOfferPromotionalOffer;
+      'api::promotional-offer-category.promotional-offer-category': ApiPromotionalOfferCategoryPromotionalOfferCategory;
       'api::service.service': ApiServiceService;
       'api::shop-value.shop-value': ApiShopValueShopValue;
       'api::speciality.speciality': ApiSpecialitySpeciality;

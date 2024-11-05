@@ -1,0 +1,30 @@
+{
+  "kind": "collectionType",
+  "collectionName": "promotional_offers",
+  "info": {
+    "singularName": "promotional-offer",
+    "pluralName": "promotional-offers",
+    "displayName": "PromotionalOffer"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "content": {
+      "type": "component",
+      "repeatable": true,
+      "component": "common.promotional-offer-description"
+    },
+    "old_price": {
+      "type": "decimal"
+    },
+    "new_price": {
+      "type": "decimal",
+      "required": true
+    },
+    "priority": {
+      "type": "integer"
+    }
+  }
+}

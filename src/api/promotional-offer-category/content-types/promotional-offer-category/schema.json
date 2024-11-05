@@ -1,0 +1,35 @@
+{
+  "kind": "collectionType",
+  "collectionName": "promotional_offer_categories",
+  "info": {
+    "singularName": "promotional-offer-category",
+    "pluralName": "promotional-offer-categories",
+    "displayName": "PromotionalOfferCategory",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "old_price": {
+      "type": "decimal"
+    },
+    "new_price": {
+      "type": "decimal",
+      "required": false
+    },
+    "priority": {
+      "type": "integer"
+    },
+    "promotional_offers": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::promotional-offer.promotional-offer"
+    }
+  }
+}

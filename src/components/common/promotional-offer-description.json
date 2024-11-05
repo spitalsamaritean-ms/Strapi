@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_common_promotional_offer_descriptions",
+  "info": {
+    "displayName": "PromotionalOfferDescription",
+    "icon": "pencil"
+  },
+  "options": {},
+  "attributes": {
+    "content": {
+      "type": "string",
+      "required": true
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "normal",
+        "bordered"
+      ],
+      "required": true,
+      "default": "normal"
+    }
+  }
+}
