@@ -1762,6 +1762,61 @@ export interface ApiPartnerPartner extends Schema.SingleType {
   };
 }
 
+export interface ApiPatientSatisfactionPatientSatisfaction
+  extends Schema.CollectionType {
+  collectionName: 'patient_satisfactions';
+  info: {
+    singularName: 'patient-satisfaction';
+    pluralName: 'patient-satisfactions';
+    displayName: 'PatientSatisfaction';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Sexul: Attribute.String;
+    Varsta: Attribute.Integer;
+    Sectia_de_internare: Attribute.String;
+    Insotitor_la_internare: Attribute.String;
+    Cazare: Attribute.String;
+    Curatenie: Attribute.String;
+    Alimentatie: Attribute.String;
+    Timpul_acordat_de_directorul_de_ingrijiri: Attribute.String;
+    Timpul_acordat_de_medicul_curant: Attribute.String;
+    Calitate_ingrijire_medic_curant: Attribute.String;
+    Calitate_ingrijire_asistente_medicale: Attribute.String;
+    Calitate_ingrijire_infirmiere: Attribute.String;
+    Insotitor_de_pe_alta_sectie: Attribute.String;
+    Instruire_mod_primire_medicamente: Attribute.String;
+    Administrarea_medicamentelor_sub_supravegherea_asistentei: Attribute.String;
+    Primirea_medicamentelor_pentru_1_zi: Attribute.String;
+    Medicamentele_administrate_in_spital: Attribute.String;
+    Procedura_cumpararii_medicamentelor: Attribute.String;
+    Multumit_de_ingrijirile_in_timpul_zilei: Attribute.String;
+    Multumit_de_ingrijirile_in_timpul_nopti: Attribute.String;
+    Multumit_de_ingrijirile_in_timpul_weekend_sarbatori_legale: Attribute.String;
+    Impresia_generala: Attribute.String;
+    In_cazul_reinternari_ati_opta_pentru_aceleasi_spital: Attribute.String;
+    Observatii: Attribute.Text;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::patient-satisfaction.patient-satisfaction',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::patient-satisfaction.patient-satisfaction',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiPricePrice extends Schema.CollectionType {
   collectionName: 'prices';
   info: {
@@ -1998,7 +2053,8 @@ export interface ApiServiceService extends Schema.CollectionType {
         'common.image-and-text',
         'common.header-and-text',
         'common.quotes',
-        'services.call-to-action'
+        'services.call-to-action',
+        'services.hero2'
       ]
     >;
     seo: Attribute.Component<'shared.seo'>;
@@ -2203,6 +2259,7 @@ declare module '@strapi/types' {
       'api::order.order': ApiOrderOrder;
       'api::package.package': ApiPackagePackage;
       'api::partner.partner': ApiPartnerPartner;
+      'api::patient-satisfaction.patient-satisfaction': ApiPatientSatisfactionPatientSatisfaction;
       'api::price.price': ApiPricePrice;
       'api::product.product': ApiProductProduct;
       'api::product-category.product-category': ApiProductCategoryProductCategory;

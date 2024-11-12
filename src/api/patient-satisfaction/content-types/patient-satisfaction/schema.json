@@ -1,0 +1,88 @@
+{
+  "kind": "collectionType",
+  "collectionName": "patient_satisfactions",
+  "info": {
+    "singularName": "patient-satisfaction",
+    "pluralName": "patient-satisfactions",
+    "displayName": "PatientSatisfaction",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Sexul": {
+      "type": "string"
+    },
+    "Varsta": {
+      "type": "integer"
+    },
+    "Sectia_de_internare": {
+      "type": "string"
+    },
+    "Insotitor_la_internare": {
+      "type": "string"
+    },
+    "Cazare": {
+      "type": "string"
+    },
+    "Curatenie": {
+      "type": "string"
+    },
+    "Alimentatie": {
+      "type": "string"
+    },
+    "Timpul_acordat_de_directorul_de_ingrijiri": {
+      "type": "string"
+    },
+    "Timpul_acordat_de_medicul_curant": {
+      "type": "string"
+    },
+    "Calitate_ingrijire_medic_curant": {
+      "type": "string"
+    },
+    "Calitate_ingrijire_asistente_medicale": {
+      "type": "string"
+    },
+    "Calitate_ingrijire_infirmiere": {
+      "type": "string"
+    },
+    "Insotitor_de_pe_alta_sectie": {
+      "type": "string"
+    },
+    "Instruire_mod_primire_medicamente": {
+      "type": "string"
+    },
+    "Administrarea_medicamentelor_sub_supravegherea_asistentei": {
+      "type": "string"
+    },
+    "Primirea_medicamentelor_pentru_1_zi": {
+      "type": "string"
+    },
+    "Medicamentele_administrate_in_spital": {
+      "type": "string"
+    },
+    "Procedura_cumpararii_medicamentelor": {
+      "type": "string"
+    },
+    "Multumit_de_ingrijirile_in_timpul_zilei": {
+      "type": "string"
+    },
+    "Multumit_de_ingrijirile_in_timpul_nopti": {
+      "type": "string"
+    },
+    "Multumit_de_ingrijirile_in_timpul_weekend_sarbatori_legale": {
+      "type": "string"
+    },
+    "Impresia_generala": {
+      "type": "string"
+    },
+    "In_cazul_reinternari_ati_opta_pentru_aceleasi_spital": {
+      "type": "string"
+    },
+    "Observatii": {
+      "type": "text"
+    }
+  }
+}

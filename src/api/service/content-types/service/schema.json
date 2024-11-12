@@ -48,7 +48,8 @@
         "common.image-and-text",
         "common.header-and-text",
         "common.quotes",
-        "services.call-to-action"
+        "services.call-to-action",
+        "services.hero2"
       ]
     },
     "seo": {

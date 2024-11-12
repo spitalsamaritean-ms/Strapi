@@ -305,6 +305,19 @@ export interface ServicesHero extends Schema.Component {
   };
 }
 
+export interface ServicesHero2 extends Schema.Component {
+  collectionName: 'components_services_hero2s';
+  info: {
+    displayName: 'Hero2';
+    icon: 'feather';
+  };
+  attributes: {
+    title: Attribute.String & Attribute.Required;
+    short_description: Attribute.Text;
+    image: Attribute.Media & Attribute.Required;
+  };
+}
+
 export interface ServicesList extends Schema.Component {
   collectionName: 'components_services_lists';
   info: {
@@ -447,6 +460,7 @@ declare module '@strapi/types' {
       'services.faq-2': ServicesFaq2;
       'services.faq': ServicesFaq;
       'services.hero': ServicesHero;
+      'services.hero2': ServicesHero2;
       'services.list': ServicesList;
       'shared.meta-social': SharedMetaSocial;
       'shared.seo': SharedSeo;
