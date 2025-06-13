@@ -1695,6 +1695,53 @@ export interface ApiOrderOrder extends Schema.CollectionType {
   };
 }
 
+export interface ApiPachetePachete extends Schema.CollectionType {
+  collectionName: 'pachetes';
+  info: {
+    singularName: 'pachete';
+    pluralName: 'pachetes';
+    displayName: 'Pachete';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String;
+    coverImage: Attribute.Media & Attribute.Required;
+    pachetFile: Attribute.Media & Attribute.Required;
+    slug: Attribute.UID & Attribute.Required;
+    seo: Attribute.Component<'shared.seo'>;
+    description: Attribute.Text;
+    content: Attribute.DynamicZone<
+      [
+        'common.header-and-text',
+        'common.image-and-text',
+        'common.text',
+        'common.image-block3',
+        'common.quotes'
+      ]
+    >;
+    topPosition: Attribute.Boolean;
+    priority: Attribute.Integer;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::pachete.pachete',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::pachete.pachete',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiPackagePackage extends Schema.CollectionType {
   collectionName: 'packages';
   info: {
@@ -2257,6 +2304,7 @@ declare module '@strapi/types' {
       'api::newsletter.newsletter': ApiNewsletterNewsletter;
       'api::nutrition.nutrition': ApiNutritionNutrition;
       'api::order.order': ApiOrderOrder;
+      'api::pachete.pachete': ApiPachetePachete;
       'api::package.package': ApiPackagePackage;
       'api::partner.partner': ApiPartnerPartner;
       'api::patient-satisfaction.patient-satisfaction': ApiPatientSatisfactionPatientSatisfaction;

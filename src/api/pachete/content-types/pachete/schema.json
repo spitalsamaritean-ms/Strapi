@@ -1,0 +1,64 @@
+{
+  "kind": "collectionType",
+  "collectionName": "pachetes",
+  "info": {
+    "singularName": "pachete",
+    "pluralName": "pachetes",
+    "displayName": "Pachete",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "coverImage": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "pachetFile": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "files",
+        "images"
+      ]
+    },
+    "slug": {
+      "type": "uid",
+      "required": true
+    },
+    "seo": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.seo"
+    },
+    "description": {
+      "type": "text"
+    },
+    "content": {
+      "type": "dynamiczone",
+      "components": [
+        "common.header-and-text",
+        "common.image-and-text",
+        "common.text",
+        "common.image-block3",
+        "common.quotes"
+      ]
+    },
+    "topPosition": {
+      "type": "boolean"
+    },
+    "priority": {
+      "type": "integer"
+    }
+  }
+}
