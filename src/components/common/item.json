@@ -13,7 +13,7 @@
     },
     "description": {
       "type": "richtext",
-      "required": true
+      "required": false
     },
     "icon": {
       "type": "media",

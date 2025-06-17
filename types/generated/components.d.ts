@@ -85,7 +85,7 @@ export interface CommonItem extends Schema.Component {
   };
   attributes: {
     title: Attribute.String & Attribute.Required;
-    description: Attribute.RichText & Attribute.Required;
+    description: Attribute.RichText;
     icon: Attribute.Media & Attribute.Required;
   };
 }
@@ -227,7 +227,7 @@ export interface ServicesAbout extends Schema.Component {
   attributes: {
     lead: Attribute.String & Attribute.Required;
     title: Attribute.String & Attribute.Required;
-    description: Attribute.RichText & Attribute.Required;
+    description: Attribute.RichText;
     imageOne: Attribute.Media & Attribute.Required;
     imageTwo: Attribute.Media & Attribute.Required;
   };
@@ -242,7 +242,7 @@ export interface ServicesAbout2 extends Schema.Component {
   attributes: {
     lead: Attribute.String & Attribute.Required;
     title: Attribute.String & Attribute.Required;
-    description: Attribute.RichText & Attribute.Required;
+    description: Attribute.RichText;
     image: Attribute.Media & Attribute.Required;
     items: Attribute.Component<'common.list-item', true>;
   };
@@ -283,7 +283,7 @@ export interface ServicesFaq extends Schema.Component {
   };
   attributes: {
     title: Attribute.String & Attribute.Required;
-    description: Attribute.Text & Attribute.Required;
+    description: Attribute.Text;
     items: Attribute.Component<'common.list-item', true>;
     buttons: Attribute.Component<'common.buttons', true>;
     faq: Attribute.Component<'common.faq', true>;
@@ -300,7 +300,7 @@ export interface ServicesHero extends Schema.Component {
   attributes: {
     lead: Attribute.String & Attribute.Required;
     title: Attribute.String & Attribute.Required;
-    description: Attribute.Text & Attribute.Required;
+    description: Attribute.Text;
     buttons: Attribute.Component<'common.buttons', true>;
   };
 }
@@ -327,7 +327,7 @@ export interface ServicesList extends Schema.Component {
   };
   attributes: {
     title: Attribute.String & Attribute.Required;
-    description: Attribute.Text & Attribute.Required;
+    description: Attribute.Text;
     items: Attribute.Component<'common.item', true>;
   };
 }
