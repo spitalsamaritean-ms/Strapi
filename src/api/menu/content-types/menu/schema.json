@@ -10,7 +10,11 @@
   "options": {
     "draftAndPublish": false
   },
-  "pluginOptions": {},
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
   "attributes": {
     "menu": {
       "type": "dynamiczone",
@@ -19,7 +23,12 @@
         "menu.dropdown",
         "menu.menu-link",
         "menu.nested-dropdown"
-      ]
+      ],
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     }
   }
 }

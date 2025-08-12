@@ -58,7 +58,7 @@ export interface CommonImageAndText extends Schema.Component {
     description: '';
   };
   attributes: {
-    image: Attribute.Media & Attribute.Required;
+    image: Attribute.Media;
     text: Attribute.RichText & Attribute.Required;
   };
 }
@@ -70,9 +70,9 @@ export interface CommonImageBlock3 extends Schema.Component {
     description: '';
   };
   attributes: {
-    image1: Attribute.Media & Attribute.Required;
-    image2: Attribute.Media & Attribute.Required;
-    image3: Attribute.Media & Attribute.Required;
+    image1: Attribute.Media;
+    image2: Attribute.Media;
+    image3: Attribute.Media;
   };
 }
 
@@ -125,7 +125,7 @@ export interface CommonQuotes extends Schema.Component {
   };
   attributes: {
     text: Attribute.Text & Attribute.Required;
-    image: Attribute.Media & Attribute.Required;
+    image: Attribute.Media;
     name: Attribute.String & Attribute.Required;
   };
 }
@@ -228,8 +228,8 @@ export interface ServicesAbout extends Schema.Component {
     lead: Attribute.String & Attribute.Required;
     title: Attribute.String & Attribute.Required;
     description: Attribute.RichText;
-    imageOne: Attribute.Media & Attribute.Required;
-    imageTwo: Attribute.Media & Attribute.Required;
+    imageOne: Attribute.Media;
+    imageTwo: Attribute.Media;
   };
 }
 
@@ -243,7 +243,7 @@ export interface ServicesAbout2 extends Schema.Component {
     lead: Attribute.String & Attribute.Required;
     title: Attribute.String & Attribute.Required;
     description: Attribute.RichText;
-    image: Attribute.Media & Attribute.Required;
+    image: Attribute.Media;
     items: Attribute.Component<'common.list-item', true>;
   };
 }
@@ -310,11 +310,12 @@ export interface ServicesHero2 extends Schema.Component {
   info: {
     displayName: 'Hero2';
     icon: 'feather';
+    description: '';
   };
   attributes: {
     title: Attribute.String & Attribute.Required;
     short_description: Attribute.Text;
-    image: Attribute.Media & Attribute.Required;
+    image: Attribute.Media;
   };
 }
 
@@ -360,15 +361,14 @@ export interface SharedSeo extends Schema.Component {
   info: {
     displayName: 'seo';
     icon: 'search';
+    description: '';
   };
   attributes: {
     metaTitle: Attribute.String &
-      Attribute.Required &
       Attribute.SetMinMaxLength<{
         maxLength: 60;
       }>;
     metaDescription: Attribute.String &
-      Attribute.Required &
       Attribute.SetMinMaxLength<{
         minLength: 50;
         maxLength: 160;
